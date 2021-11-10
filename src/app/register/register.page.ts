@@ -13,6 +13,7 @@ import { UtilsService } from '../provider/utils.service';
 export class RegisterPage implements OnInit {
   public onRegisterForm:FormGroup;
   loading:any;
+  admins: any=[];
   constructor(
     public navCtrl:NavController,
     public _fb:FormBuilder,
@@ -47,29 +48,50 @@ export class RegisterPage implements OnInit {
         ])],
         
       })
-      
+      this.admins=[];
+      firebase.database().ref('adminPool').once('value',(snapshot)=>{
+        var data=snapshot.val();
+        for(var key in data){
+          this.admins.push(data[key]);
+        }
+      })
     }
-
+    // addNewAdmin(){
+    //   var data={email:"a@aa.com"}
+    //   firebase.database().ref('adminPool').push(data).then(()=>{
+    //     this.utils.presentToast("Created");
+    //   })
+    // }
  
 
   SignUp(userData){
     this.utils.presentLoading("Please Wait");
-    firebase.auth().createUserWithEmailAndPassword(userData.Email , userData.Password).then((user)=>{
-      if(firebase.auth().currentUser){
-        userData.uid =firebase.auth().currentUser.uid;
-        this.saveUserDataAfterSignUp(userData);
-      }
-    }).catch(err=>{
-      err;
+    var admin=this.admins.filter(x=>x.email==userData.Email)
+    if(admin[0]){
+      debugger;
+      firebase.auth().createUserWithEmailAndPassword(userData.Email , userData.Password).then((user)=>{
+        if(firebase.auth().currentUser){
+          userData.uid =firebase.auth().currentUser.uid;
+          this.saveUserDataAfterSignUp(userData);
+        }
+      }).catch(err=>{
+        err;
+        setTimeout(() => {
+        this.utils.dismiss();
+        this.utils.presentToast(err.message)
+        }, 500);
+      })
+    }else{
       setTimeout(() => {
-      this.utils.dismiss();
-      this.utils.presentToast(err.message)
-      }, 500);
-    })
+        this.utils.dismiss();
+        this.utils.presentToast("Sorry, You can't SignUp")
+        }, 500);
+    }
+    
   }
 
   saveUserDataAfterSignUp(userData){
-    firebase.database().ref(`users/${userData.uid}`).set(userData).then(()=>{
+    firebase.database().ref(`admins/${userData.uid}`).set(userData).then(()=>{
        this.getService.getUserData(userData.uid);
        this.utils.dismiss();
     }).catch((err)=>{
