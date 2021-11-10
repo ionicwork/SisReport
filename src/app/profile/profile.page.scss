@@ -1,0 +1,57 @@
+ion-content{
+    --background:#f4f8fc;
+}
+.devmain{
+    border-radius: 0 0 50px 50px;
+    background: #f0f4fe;
+}
+.devBAckButton{
+margin-top: 40px;
+    img{
+        object-fit: cover;
+        width: 100%;
+        max-width: 30px;
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+.devProfileData{
+     text-align: center;
+
+     h1{
+         font-weight: 600;
+         margin: auto;
+         margin-top: 10px;
+     }
+     p{
+         margin: 0;
+     }
+}
+
+.devProfileDetail{
+   display: flex;
+   padding: 15px;
+   h3{
+       font-weight: bold;
+       font-size: 14px;
+   }
+   p{
+       font-size: 12px;
+   }
+    .devEmail{
+     width: 45%;
+    }
+
+    .devJoinigDate{
+width: 25%;
+
+    }
+    
+    .devPhone{
+width: 30%;
+
+    }
+
+}
+
+

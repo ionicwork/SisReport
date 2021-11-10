@@ -1,0 +1,133 @@
+<ion-content style="--background: #f0f4fe;">
+  <div class="devBAckButton" style="padding-left:15px ;">
+    <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
+  </div>
+  <div class="devTitle">
+    <h1>Employees</h1>
+  </div>
+  <div class="devBanner">
+    <img src="../../assets/LogIn team/admin employees/employeelist.png" alt="">
+  </div>
+  <div class="devSearch">
+    <div class="devSearchBar">
+      <ion-searchbar placeholder="Enter Name" mode="md"></ion-searchbar>
+    </div>
+    <div class="devBtn">
+      <!-- <ion-button color="dark">+Add Employee</ion-button> -->
+      <button  class="devBtn" type="submit" style="background-color: #0000;" (click)="AddEmployee()">+Add Employee</button>
+
+    </div>
+  </div>
+  <div class="devScrollable">
+         <ion-row>
+             <ion-segment scrollable (ionChange)="onCategoryChange($event)" [(ngModel)]="month" mode="md">
+               <ion-segment-button *ngFor="let category of categories" value="{{category}}">
+                  <ion-label>{{ category }}</ion-label>
+               </ion-segment-button>
+             </ion-segment>
+         </ion-row>
+  </div>
+  <div class="devCards" *ngIf="month==='February'">
+  <div class="devProfileCard" (click)="updateData()">
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Fraz Ahmad</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="devProfileCard"  (click)="updateData()">
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Jahanzaib choudhary</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="devProfileCard" (click)="updateData()">
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Umair Aslam</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="devProfileCard" (click)="updateData()">
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Fraz Ahmad</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+</div>
+<div class="devCards" *ngIf="month==='March'">
+  <div class="devProfileCard"(click)="updateData()" >
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Fraz Ahmad</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="devProfileCard" (click)="updateData()">
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Jahanzaib choudhary</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="devProfileCard" (click)="updateData()">
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Umair Aslam</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+  <div class="devProfileCard" (click)="updateData()">
+    <div class="devProfileImg">
+      <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+    </div>
+    <div class="devProfileName">
+      <h1>Fraz Ahmad</h1>
+      <p>Ionic Developer</p>
+    </div>
+    <div class="devArrowIcon">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+</div>
+<button ion-button icon-right >
+ 
+</button>
+</ion-content>

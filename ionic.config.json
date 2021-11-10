@@ -1,0 +1,7 @@
+{
+  "name": "SisReport",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

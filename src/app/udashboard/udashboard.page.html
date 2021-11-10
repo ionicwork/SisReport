@@ -1,0 +1,105 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div style="display: flex; ;" class="devheader">
+      
+       <h3  >Dashboard</h3>
+       <div class="devprofile">
+      <div  class="devprofilename">
+        <p style="font-weight: 900;">Jahanzaib Iqbal</p>
+        <p>Business Developer</p>
+      </div>
+
+      <div class="devavatar" slot="end">
+        <ion-avatar (click)="gotoprofile()"  slot="end"><img src="../../assets/LogIn team/admin Leave forms/Ellipse 13.png" alt=""></ion-avatar>
+      </div>
+    </div>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+ <div class="devdailyreport">
+<div class="devdailycircle">
+</div>
+<div class="devdailycontent">
+  <h1>Daily reports charts</h1>
+  <p>90 Reports</p>
+</div>
+</div>
+<div class="devmain">
+  <div class="devchart"><img style="    width: 100%;" src="../../assets/LogIn team/main user screen/miancart.png" alt=""></div>
+
+<div class="devreview">
+  <p>You are so lazy please keep it up</p>
+</div>
+
+<div class="devreportcontent">
+  <div (click)="gotodailyreport()" class="devReport">
+    <div class="devIcon">
+      <ion-icon name="pie-chart" ></ion-icon>
+    </div>
+    <div class="devtitle">
+     <h1>Daily Report</h1>
+    </div>
+    <div class="devCounter">
+      <p>40</p>
+    </div>
+  </div>
+
+  <div (click)="gotoleaveform()" class="devleaveform">
+    <div class="devleaveformIcon">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </div>
+    <div class="devleaveformtitle">
+     <h1>Leave Form</h1>
+    </div>
+    <div class="devleaveformCounter">
+      <p>40</p>
+    </div>
+  </div>
+  
+  <h2 style="font-weight: 600;">Recently Reports</h2>
+ <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+  <div class="reportcontent">
+    <h3>Ipug responsive issue</h3>
+   <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+    <div class="devreporttime">
+      <ion-icon name="time-outline"></ion-icon>
+      <p>10:20PM , Jan 12,2020</p>
+    </div>
+  </div>
+
+    <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+ </ion-card>
+ <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+  <div class="reportcontent">
+    <h3>Ipug responsive issue</h3>
+   <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+    <div class="devreporttime">
+      <ion-icon name="time-outline"></ion-icon>
+      <p>10:20PM , Jan 12,2020</p>
+    </div>
+  </div>
+
+    <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+ </ion-card>
+ <ion-card class="repotdetail" >
+  <div class="reportcontent">
+    <h3>Ipug responsive issue</h3>
+   <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+    <div class="devreporttime">
+      <ion-icon name="time-outline"></ion-icon>
+      <p>10:20PM , Jan 12,2020</p>
+    </div>
+  </div>
+
+    <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+ </ion-card>
+ 
+</div>
+</div>
+
+
+
+</ion-content>

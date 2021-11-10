@@ -1,0 +1,75 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="devHeader">
+      <div class="devTitle">
+          <h1>DashBoard</h1>
+      </div>
+      <div class="devProfile" (click)="employerProfile()">
+         <div class="devName">
+           <h2>{{getService.user.FullName}}</h2>
+           <p>{{getService.user.Email}}</p>
+         </div>
+         <div class="devImg">
+           <img src="../../assets/LogIn team/main user screen4/Ellipse 7.png" alt="">
+         </div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background:#f0f4fe;">
+    <div class="devContainer">
+      <div class="devPieChart">
+        <img src="../../assets/LogIn team/admin main screen/Pie.png" alt="">
+      </div>
+      <div class="devProgressChart">
+        <img src="../../assets/LogIn team/admin main screen/Group 96.png" alt="">
+      </div>
+    </div>
+    <div class="devChartReport" >
+        <div class="devReport" (click)="dailyreport()">
+          <div class="devIcon" style="background: rgba(203, 217, 252 , .4);">
+            <ion-icon name="pie-chart" ></ion-icon>
+          </div>
+          <div class="devtitle">
+           <h1>Daily Report</h1>
+          </div>
+          <div class="devCounter">
+            <p>90</p>
+          </div>
+        </div>
+        <div class="devReport" (click)="leave()">
+          <div class="devIcon" style="background: rgba(254, 240, 240 );">
+            <ion-icon name="document-text-outline" style="color: #f82929;"></ion-icon>
+          </div>
+          <div class="devtitle">
+           <h1>Leave Form</h1>
+          </div>
+          <div class="devCounter">
+            <p>20</p>
+          </div>
+        </div>
+        <div class="devReport" (click)="feedback()">
+          <div class="devIcon" style="background: rgba(240, 254, 240 );">
+            <ion-icon name="receipt-outline" style="color: #23ee23;"></ion-icon>
+          </div>
+          <div class="devtitle">
+           <h1>Feedback</h1>
+          </div>
+          <div class="devCounter">
+            <p>40</p>
+          </div>
+        </div>
+        <div class="devReport" (click)="employee()">
+          <div class="devIcon" style="background: rgba(255, 252, 240 );">
+            <ion-icon name="people" style="color: #ffda16;"></ion-icon>
+          </div>
+          <div class="devtitle">
+           <h1>Employees</h1>
+          </div>
+          <div class="devCounter">
+            <p>35</p>
+          </div>
+        </div>
+    </div>
+</ion-content>

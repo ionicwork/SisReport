@@ -1,0 +1,222 @@
+
+ion-content{
+    --background:#f4f8fc;
+}
+.devheader{
+    padding: 10px;
+
+    h3{
+        width: 40%;
+        font-size: 27px;
+        font-weight: 600;
+    
+    }
+    .devprofile{
+        width: 60%;
+        display: flex;
+        align-items: center;
+    }
+    .devprofilename{
+        max-width: calc(100% - 50px);
+       width: 100%;
+       text-align: end;
+    padding-right: 5px;
+       p{
+           margin: 0 auto;
+       }
+   }
+.devavatar{
+    max-width: 50px;
+    width: 100%;
+    ion-avatar{
+
+        max-width: 50px;
+      max-height: 50px;
+    }
+}
+   
+    
+}
+
+
+
+.devdailyreport{
+display: flex;
+padding: 10px;
+background: white;
+.devdailycircle{
+    margin-top: 1%;
+        width: 20px;
+        background: #fa5805;
+        height: 20px;
+        border-radius: 50px;
+}
+
+.devdailycontent{
+    margin-left: 11px;
+    h1{
+        margin: 0 auto;
+        font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    }
+    p{
+margin: 0;
+font-size: 17px;
+    }
+}
+
+}
+
+
+.devmain{
+
+    height: 100vh;
+
+    .devreview{
+        text-align: center;
+        background: white;
+        padding: 16px;
+        border-radius: 0 0 50px 50px;
+        margin-top: -5px;
+    }
+}
+
+.devreportcontent{
+    padding: 15px;
+}
+.devReport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: white;
+    margin-top: 7px;
+    border-radius: 10px;
+}
+.devIcon {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    background: rgba(203, 217, 252 , .4);
+    ion-icon{
+        font-size: 40px;
+        color: #889dd1;
+    }
+}
+.devtitle {
+    width: 65%;
+}
+.devtitle h1{
+    margin: 0;
+    padding-left: 10px;
+    color: #7a8bb7;
+    font-size: 22px;
+}
+.devCounter {
+    width: 15%;
+}
+.devCounter p{
+    margin: 0;
+    color: #c6c8cd;
+    text-align: end;
+    font-size: 22px;
+    padding-right: 5px;
+}
+
+.devleaveform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: white;
+    margin-top: 13px;
+    border-radius: 10px;
+
+    .devleaveformIcon {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+        border-radius: 10px;
+        background: #e2f9e2;
+        ion-icon{
+            font-size: 40px;
+            color: #2def2d;
+        }
+    }
+    .devleaveformtitle {
+        width: 65%;
+    }
+    .devleaveformtitle h1{
+        margin: 0;
+        padding-left: 10px;
+        color: #7a8bb7;
+        font-size: 22px;
+    }
+    .devleaveformCounter {
+        width: 15%;
+    }
+    .devleaveformCounter p{
+        margin: 0;
+        color: #c6c8cd;
+        text-align: end;
+        font-size: 22px;
+        padding-right: 5px;
+    }
+}
+
+
+.repotdetail{
+  margin: 0;
+  margin-top: 10px;
+   padding: 10px;
+   border-radius: 10px;
+   position: relative;
+
+
+
+   .reportcontent{
+    width: 85%;
+   }
+    h3{
+        font-size: 18px;
+       font-weight: 600;
+       color: black;
+   } 
+   p{
+    font-size: 14px;
+   }
+   .devreporttime{
+    display: flex;
+    align-items: center;
+    ion-icon{
+        font-size: 22px;
+        
+    }
+}
+
+.deviconforword{
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    color: #fa5805;
+}
+
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .devheader h3{
+       font-size: 22px !important;
+   }
+   .devprofilename p{
+       font-size: 12px !important;
+   }
+  }

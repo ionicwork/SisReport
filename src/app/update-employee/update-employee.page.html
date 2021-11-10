@@ -1,0 +1,74 @@
+
+<ion-content style="--background: #f0f4fe;">
+  <div class="devRegister">
+    <div class="devBAckButton"  style="padding-left:15px ;">
+      <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
+    </div>
+     <div class="devRegister">
+          <!-- <div class="devImg">
+              <img src="" alt="">
+          </div> -->
+        <div class="devForm" style="position: relative;">
+          <div class="devAvatarImg">
+            <img src="../../assets/LogIn team/admin add employee/Profile Image.png" alt="">
+          </div>
+          <form >
+            <ion-grid>
+              <ion-row  justify-content-center>
+                <ion-col align-self-center>
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required">FullName</ion-label>
+                    <ion-input type="text"  style="margin-left: 10px;" 
+                      placeholder="Name"></ion-input>
+                  </ion-item>
+                  
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required">Skills</ion-label>
+                    <ion-input type="text"style="margin-left: 10px;" 
+                      placeholder="Skills"></ion-input>
+                  </ion-item>
+                 
+    
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required">Phone</ion-label>
+                    <ion-input type="text"  style="margin-left: 10px;" 
+                      placeholder="Phone"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required">Email</ion-label>
+                    <ion-input type="text"  style="margin-left: 10px;" 
+                      placeholder="email"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required">Joining Date</ion-label>
+                    <ion-input type="text"  style="margin-left: 10px;" 
+                      placeholder="Joining Date"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required">Salary</ion-label>
+                    <ion-input type="text"  style="margin-left: 10px;" 
+                      placeholder="Salary"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required">Password</ion-label>
+                    <ion-input type="Password"  style="margin-left: 10px;" 
+                      placeholder="Password"></ion-input>
+                  </ion-item>
+                   <p style="margin-bottom: 0; text-align: center;">Daily reposrts status:<span style="color: red;">Lazy</span> </p>
+                  <div class="devbuttons">
+                    
+                      <button  class="devBtn" type="submit" style="background-color: #0000;" (click)="update()">update</button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </div>
+     </div>
+  </div>
+ 
+</ion-content>

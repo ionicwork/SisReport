@@ -1,0 +1,106 @@
+.devHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.devTitle {
+    width: 40%;
+}
+.devTitle h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: bold;
+}
+.devProfile {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    justify-content: end;
+}
+.devName {
+    text-align: end;
+    padding-right: 5px;
+}
+.devImg {
+    max-width: 40px;
+    width: 100%;
+}
+.devImg img{
+    width: 100%;
+    max-width: 40px;
+}
+.devName {
+    text-align: end;
+}
+.devName h2 {
+    font-size: 16px;
+    margin: 0;
+}
+.devName p {
+margin: 0;
+font-size: 12px;
+}
+ion-header{
+    padding: 10px 10px;
+}
+.devPieChart {
+    text-align: center;
+}
+.devPieChart img{
+        max-width: 250px;
+        width: 100%;
+}
+.devProgressChart {
+    text-align: center;
+    padding: 30px 0;
+}
+.devProgressChart img{
+    max-width: 300px;
+    width:100%;
+}
+.devContainer {
+    background: white;
+    border-radius: 0 0 40px 40px;
+}
+.devReport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: white;
+    margin: 0 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.devIcon {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    
+    ion-icon{
+        font-size: 40px;
+        color: #889dd1;
+    }
+}
+.devtitle {
+    width: 65%;
+}
+.devtitle h1{
+    margin: 0;
+    padding-left: 10px;
+    color: #7a8bb7;
+    font-size: 22px;
+}
+.devCounter {
+    width: 15%;
+}
+.devCounter p{
+    margin: 0;
+    color: #c6c8cd;
+    text-align: end;
+    font-size: 22px;
+    padding-right: 5px;
+}

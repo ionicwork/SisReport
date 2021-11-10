@@ -1,0 +1,229 @@
+<ion-content>
+  <div class="devBAckButton" style="padding-left:15px ;">
+    <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
+  </div>
+  <div class="devTitle">
+    <h1>Daily reports</h1>
+  </div>
+  <div class="devBanner">
+    <img src="../../assets/LogIn team/main user screen (1)/Asset 1 1.png" alt="">
+  </div>
+  <div class="devSearch">
+    <div class="devSearchBar" style="position: relative;">
+      <ion-searchbar mode="md"></ion-searchbar>
+      <div class="devCalender">
+        <ion-datetime #picker pickerFormat="DD MMMM YYYY" [min]="datePickerMin" [(ngModel)]="datePicker" (ionChange)="changeDate()"></ion-datetime>
+        <ion-icon name="calendar" style="font-size:25px ;" (click)="picker.open()"></ion-icon>
+      </div>
+    </div>
+    
+  
+    <div class="devBtn">
+      <!-- <ion-button color="dark">+Add Employee</ion-button> -->
+      <ion-icon name="filter-outline"></ion-icon>
+  
+    </div>
+  </div>
+  <div class="devReports">
+    <ion-segment scrollable (ionChange)="onCategoryChange($event)" [(ngModel)]="month" mode="md">
+      <ion-segment-button *ngFor="let category of categories" value="{{category}}">
+         <ion-label>{{ category }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+</div>
+
+
+<div *ngIf="month==='January'" class="january">
+  <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+    <div class="devProfileCard" >
+      <div class="devProfileImg">
+        <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+      </div>
+      <div class="devProfileName">
+        <h1>Fraz Ahmad</h1>
+        <p>Ionic Developer</p>
+      </div>
+      </div>
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+    <div class="devProfileCard" >
+      <div class="devProfileImg">
+        <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+      </div>
+      <div class="devProfileName">
+        <h1>Fraz Ahmad</h1>
+        <p>Ionic Developer</p>
+      </div>
+      </div>
+   
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+
+</div>
+<div *ngIf="month==='February'" class="january">
+  <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+    <div class="devProfileCard" >
+      <div class="devProfileImg">
+        <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+      </div>
+      <div class="devProfileName">
+        <h1>Fraz Ahmad</h1>
+        <p>Ionic Developer</p>
+      </div>
+      </div>
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+    <div class="devProfileCard" >
+      <div class="devProfileImg">
+        <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+      </div>
+      <div class="devProfileName">
+        <h1>Fraz Ahmad</h1>
+        <p>Ionic Developer</p>
+      </div>
+      </div>
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+  
+
+</div>
+<div *ngIf="month==='March'" class="january">
+  <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card (click)="gotoreportdetail()" class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+   <ion-card class="repotdetail" >
+    <div class="reportcontent">
+      <h3>Ipug responsive issue</h3>
+     <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
+      <div class="devreporttime">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>10:20PM , Jan 12,2020</p>
+      </div>
+    </div>
+  
+      <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
+   </ion-card>
+
+</div>
+
+
+</ion-content>

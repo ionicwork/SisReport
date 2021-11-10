@@ -1,0 +1,61 @@
+.devBAckButton {
+    margin-top: 40px;
+  }
+  .devRegister {
+    margin-top: 30px;
+  }
+  .devBAckButton img {
+    object-fit: cover;
+    width: 100%;
+    max-width: 30px;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .devForm {
+    margin: 15px;
+    background: white;
+    padding: 50px 10px;
+    border-radius: 15px;
+    margin-top: 50px;
+  }
+  .devAvatarImg {
+    position: absolute;
+    /* width: 100%; */
+    /* max-width: 200px; */
+    top: -65px;
+    left: 20px;
+    background: #f0f4fe;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .devAvatarImg img {
+    max-width: 110px;
+    width: 100%;
+  }
+  
+  ion-label {
+    font-size: 20px !important;
+  }
+  ion-item {
+    --background: transparent;
+    border-bottom: 1px solid gray;
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
+    margin-bottom: 15px;
+  }
+  .devbuttons {
+    padding-top: 25px;
+  }
+  
+  .required::before {
+    content: " *";
+    color: red;
+  }
+  
+  button.devBtn{
+      width: 100% !important;
+      padding: 15px 0 !important;
+      font-size: 20px !important;
+      background: black !important;
+      color: white !important;
+      border-radius: 15px !important;
+  }

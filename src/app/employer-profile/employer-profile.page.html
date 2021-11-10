@@ -1,0 +1,37 @@
+
+<ion-content>
+  <div class="devmain">
+  <div class="devBAckButton"  style="padding:0 15px ;">
+    <div class="devheader">
+    <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
+       
+    </div>
+    <p (click)="update()" style="color: blue;">Edit Profile</p>
+  </div>
+
+  <div class="devProfileData">
+    <img src="../../assets/LogIn team/admin Leave forms/Ellipse 12.png" alt="">
+    <h1>{{getService.user.FullName}}</h1>
+    <p>{{getService.user.Skills}}</p>
+  </div>
+
+  <div class="devProfileDetail">
+    <div class="devEmail">
+     <h3>Email</h3>
+     <p>{{getService.user.Email}}</p>
+    </div>
+    <div class="devJoinigDate">
+     <h3>Joining Date</h3>
+     <p>{{getService.user.Date}}</p>
+    </div>
+    <div class="devPhone">
+       <h3>Phone</h3>
+       <p>{{getService.user.Phone}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="devLogoutButton" (click)="logout()">
+  <button  class="devBtn" type="submit" style="background-color: #0000;" >Logout</button>
+</div>
+</ion-content>

@@ -1,0 +1,75 @@
+
+<ion-content style="--background: #f0f4fe;">
+  <div class="devRegister">
+    <div class="devBAckButton"  style="padding-left:15px ;">
+      <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
+    </div>
+     <div class="devRegister1">
+          <!-- <div class="devImg">
+              <img src="" alt="">
+          </div> -->
+        <div class="devForm" style="position: relative;">
+          <div class="devAvatarImg">
+            <img src="../../assets/LogIn team/admin add employee/Profile Image.png" alt="">
+          </div>
+          <form [formGroup]="onRegisterForm" (ngSubmit)="SignUp(onRegisterForm.value)" >
+            <ion-grid>
+              <ion-row  justify-content-center>
+                <ion-col align-self-center>
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required" mode="md">FullName</ion-label>
+                    <ion-input type="text"  
+                      placeholder="Full Name" formControlName="FullName"></ion-input>
+                  </ion-item>
+                  
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required" mode="md">Skills</ion-label>
+                    <ion-input type="text" 
+                      placeholder="Skills" formControlName="Skills"></ion-input>
+                  </ion-item>
+                 
+    
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required" mode="md">Phone</ion-label>
+                    <ion-input type="text" 
+                      placeholder="Phone" formControlName="Phone"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required" mode="md">Email</ion-label>
+                    <ion-input type="email"   
+                      placeholder="email" formControlName="Email"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required" mode="md">Joining Date</ion-label>
+                    <ion-input type="text" 
+                      placeholder="Joining Date" formControlName="Date"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required" mode="md">Salary</ion-label>
+                    <ion-input type="text" 
+                      placeholder="Salary" formControlName="Salary"></ion-input>
+                  </ion-item>
+
+                  <ion-item lines="none" class="ion-no-padding">
+                    <ion-label position="floating" class="required" mode="md">Password</ion-label>
+                    <ion-input type="Password"  
+                      placeholder="Password" formControlName="Password"></ion-input>
+                  </ion-item>
+                 
+                  <div class="devbuttons">
+                    
+                      <button  class="devBtn" type="submit" style="background-color: #0000;" >Create</button>
+
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </div>
+     </div>
+  </div>
+ 
+</ion-content>
