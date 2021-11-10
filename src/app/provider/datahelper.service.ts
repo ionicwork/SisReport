@@ -11,21 +11,7 @@ export class DatahelperService {
     public loadingController: LoadingController
     ) { }
 
-    async presentLoading() {
-      const loading = await this.loadingController.create({
-        cssClass: 'my-custom-class',
-        message: 'Please wait...',
-        
-      });
-      await loading.present();
-  
-      
-    }
-
-    dismiss(){
-      this.loadingController.dismiss();
-      console.log('Loading dismissed!');
-    }
+   
   
   
 
@@ -35,7 +21,6 @@ export class DatahelperService {
      localStorage.setItem('user' ,JSON.stringify(snapshot.val()));
      this.user=snapshot.val();
      this.navCtrl.navigateRoot('dashboard');
-     
     }).catch((err)=>{
     })
   }
