@@ -102,8 +102,7 @@
                           </p>
                  
                   <div class="devbuttons">
-                    
-                      <button  class="devBtn" type="submit" style="background-color: #0000;" >Create</button>
+                    <ion-button [disabled]="!onRegisterForm.valid"  type="submit" color="dark" expand="block"  > Create User</ion-button>
 
                   </div>
                 </ion-col>

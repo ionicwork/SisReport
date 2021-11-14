@@ -40,8 +40,8 @@
     <p style="color: white; font-size: 20px; text-align: center; margin: 0;">Don't have Account? <span
         style="color: #fa5805; font-weight: 800;" (click)="register()">Sign Up</span></p>
     <div class="devbutton">
-      <ion-button type="submit" color="favorite" expand="block">Login</ion-button>
-      <ion-button expand="block" color="favorite" (click)=" login()" fill="outline"> <ion-icon name="people"></ion-icon>I'm Employee</ion-button>
+      <ion-button type="submit" [disabled]="!onLoginForm.valid" color="favorite" expand="block">Login</ion-button>
+      <ion-button expand="block"  color="favorite" (click)=" login()" fill="outline"> <ion-icon name="people"></ion-icon>I'm Employee</ion-button>
        
     </div>
   </ion-col>

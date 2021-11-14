@@ -41,7 +41,6 @@ export class AdminLoginPage implements OnInit {
       firebase.auth().signInWithEmailAndPassword(userData.Email,userData.Password).then(res=>{
         // console.log('reponse=' , res.uid);
         this.getService.getAdminData(res.user.uid);
-        this.utils.dismiss();
       }).catch(err=>{
         err;
         setTimeout(() => {

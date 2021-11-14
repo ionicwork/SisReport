@@ -53,9 +53,11 @@ export class AddEmployeePage implements OnInit {
   }
 
   SignUp(userData){
+    this.utils.presentLoading("Creating User");
     firebase.auth().createUserWithEmailAndPassword(userData.Email , userData.Password).then((user)=>{
       if(firebase.auth().currentUser){
         userData.uid = firebase.auth().currentUser.uid;
+        userData.adminUid=this.getService.user.uid;
          this.saveUserDataAfterSignUp(userData);
       }
     }).catch(err=>{
@@ -69,10 +71,11 @@ export class AddEmployeePage implements OnInit {
 
   saveUserDataAfterSignUp(userData){
     firebase.database().ref( `users/${userData.uid}`).set(userData).then(()=>{
-      this.getService.getEmployeeData(userData.uid);
-      
+      this.utils.presentToast("User Successfully Added");
+      this.utils.dismiss();
+      this.navCtrl.pop();
     }).catch((err)=>{
-      this.utils.presentLoading();
+      this.utils.dismiss();
     })
   }
 
