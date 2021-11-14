@@ -19,5 +19,21 @@ export class AppComponent {
      this.navCtrl.navigateRoot(['/welcome']);
     }
    });
+
+   this.platform.ready().then(() => {
+    var data:any=JSON.parse(localStorage.getItem('employee'))
+    if(data?.uid){
+      this.getService.user=data;
+      this.navCtrl.navigateRoot(['/udashboard']);
+    }else{
+     this.navCtrl.navigateRoot(['/welcome']);
+    }
+   });
+
+
+   
+
+
+
  }
 }

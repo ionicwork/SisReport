@@ -6,7 +6,8 @@ import firebase from 'firebase';
   providedIn: 'root'
 })
 export class DatahelperService {
-  public user:any={}
+  public user:any=[];
+  public employee:any=[];
   constructor( public navCtrl:NavController,
     public loadingController: LoadingController
     ) { }
@@ -15,8 +16,8 @@ export class DatahelperService {
   
   
 
-  getUserData(uid){
-    firebase.database().ref('users/'+uid).once('value',(snapshot)=>{
+  getAdminData(uid){
+    firebase.database().ref('admins/'+uid).once('value',(snapshot)=>{
      console.log(snapshot.val());
      localStorage.setItem('user' ,JSON.stringify(snapshot.val()));
      this.user=snapshot.val();
@@ -24,4 +25,16 @@ export class DatahelperService {
     }).catch((err)=>{
     })
   }
+
+  getEmployeeData(uid){
+    firebase.database().ref('users/'+uid).once('value',(snapshot)=>{
+     console.log(snapshot.val());
+     localStorage.setItem('employee' ,JSON.stringify(snapshot.val()));
+     this.user=snapshot.val();
+     this.navCtrl.navigateRoot('udashboard');
+    }).catch((err)=>{
+    })
+  }
+
+
 }

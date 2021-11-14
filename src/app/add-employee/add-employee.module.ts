@@ -4,18 +4,18 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AdminLoginPageRoutingModule } from './admin-login-routing.module';
+import { AddEmployeePageRoutingModule } from './add-employee-routing.module';
 
-import { AdminLoginPage } from './admin-login.page';
+import { AddEmployeePage } from './add-employee.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AdminLoginPageRoutingModule,
+    AddEmployeePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [AdminLoginPage]
+  declarations: [AddEmployeePage]
 })
-export class AdminLoginPageModule {}
+export class AddEmployeePageModule {}

@@ -22,7 +22,7 @@ export class EmployeesPage implements OnInit {
   }
   
   AddEmployee(){
-    this.navCtrl.navigateBack('register');
+    this.navCtrl.navigateBack('add-employee');
   }
   updateData(){
     this.navCtrl.navigateForward('update-employee')

@@ -5,26 +5,48 @@
 </ion-header> -->
 
 <ion-content>
-  
+
   <div class="devimage" style="position: relative;">
-<img src="../../assets/LogIn team/login/login.png" alt="">
-</div>
-<div class="devcontent">
-<div class="devformlogin" >
-  <h1 style="color: white;">Admin Login</h1>
-  <ion-item >
-  <ion-input placeholder="Username"></ion-input>
-  <ion-icon slot="end" style="color: white;" name="person-outline"></ion-icon>
-</ion-item>
-<ion-item >
-  <ion-input placeholder="Password"></ion-input>
-  <ion-icon slot="end" style="color: white;" name="lock-closed-outline"></ion-icon>
-  
-</ion-item>
-</div>
-<p style="color: white; font-size: 20px; text-align: center; margin: 0;">Already have Account ? <span style="color: #fa5805; font-weight: 800;" (click)="register()">Sign Up</span></p>
-<div class="devbutton">
-  <ion-button (click)="dashboard()" color="favorite" expand="block">Login</ion-button>
-</div>
-</div>
+    <img src="../../assets/LogIn team/login/login.png" alt="">
+  </div>
+  <div class="devcontent">
+    <form [formGroup]="onLoginForm" (ngSubmit)="Login(onLoginForm.value)">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center>
+    <div class="devformlogin">
+      <h1 style="color: white;">Admin Login</h1>
+      
+              <ion-item>
+                <ion-input placeholder="Username" type="email"  formControlName="Email"></ion-input>
+                <ion-icon slot="end" style="color: white;" name="person-outline"></ion-icon>
+               
+              </ion-item>
+              <p class="errorMsg" *ngIf="onLoginForm.get('Email').hasError('required')  && 
+                  (onLoginForm.get('Email').dirty || onLoginForm.get('Email').touched)">
+                            *Email is Required
+                          </p>
+              <ion-item>
+                <ion-input placeholder="Password" type="password" formControlName="Password"></ion-input>
+                <ion-icon slot="end" style="color: white;" name="lock-closed-outline"></ion-icon>
+
+              </ion-item>
+              <p class="errorMsg" *ngIf="onLoginForm.get('Password').hasError('required')  && 
+                  (onLoginForm.get('Password').dirty || onLoginForm.get('Password').touched)">
+                            *Password is Required
+                          </p>
+           
+    </div>
+    <p style="color: white; font-size: 20px; text-align: center; margin: 0;">Don't have Account? <span
+        style="color: #fa5805; font-weight: 800;" (click)="register()">Sign Up</span></p>
+    <div class="devbutton">
+      <ion-button type="submit" color="favorite" expand="block">Login</ion-button>
+      <ion-button expand="block" color="favorite" (click)=" login()" fill="outline"> <ion-icon name="people"></ion-icon>I'm Employee</ion-button>
+       
+    </div>
+  </ion-col>
+</ion-row>
+</ion-grid>
+</form>
+  </div>
 </ion-content>

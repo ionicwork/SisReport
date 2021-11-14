@@ -25,11 +25,11 @@ export class RegisterPage implements OnInit {
       this.onRegisterForm = this._fb.group({
         FullName: ['', Validators.compose([ 
           Validators.required,
-          Validators.minLength(7)
+          Validators.minLength(4)
         ])],
         Skills: ['', Validators.compose([ 
           Validators.required,
-          Validators.minLength(5)
+          Validators.minLength(4)
         ])],
         Email: ['', Validators.compose([
           Validators.required,
@@ -38,6 +38,8 @@ export class RegisterPage implements OnInit {
           Validators.required,
         ])],
         Phone: ['', Validators.compose([
+          Validators.minLength(10),
+          Validators.maxLength(11),
           Validators.required,
         ])],
         Date: ['', Validators.compose([
@@ -55,9 +57,10 @@ export class RegisterPage implements OnInit {
           this.admins.push(data[key]);
         }
       })
+      // this.addNewAdmin();
     }
     // addNewAdmin(){
-    //   var data={email:"a@aa.com"}
+    //   var data={email:"testing@admin.com"}
     //   firebase.database().ref('adminPool').push(data).then(()=>{
     //     this.utils.presentToast("Created");
     //   })
@@ -68,7 +71,7 @@ export class RegisterPage implements OnInit {
     this.utils.presentLoading("Please Wait");
     var admin=this.admins.filter(x=>x.email==userData.Email)
     if(admin[0]){
-      debugger;
+      // debugger;
       firebase.auth().createUserWithEmailAndPassword(userData.Email , userData.Password).then((user)=>{
         if(firebase.auth().currentUser){
           userData.uid =firebase.auth().currentUser.uid;
@@ -92,7 +95,7 @@ export class RegisterPage implements OnInit {
 
   saveUserDataAfterSignUp(userData){
     firebase.database().ref(`admins/${userData.uid}`).set(userData).then(()=>{
-       this.getService.getUserData(userData.uid);
+       this.getService.getAdminData(userData.uid);
        this.utils.dismiss();
     }).catch((err)=>{
       this.utils.presentLoading();
@@ -105,7 +108,7 @@ export class RegisterPage implements OnInit {
 
 
   devBack(){
-    this.navCtrl.navigateBack('welcome');
+    this.navCtrl.navigateBack('admin-login');
   }
 
  

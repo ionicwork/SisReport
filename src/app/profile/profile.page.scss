@@ -53,5 +53,19 @@ width: 30%;
     }
 
 }
+button.devBtn{
+    width: 100% !important;
+    padding: 15px 0 !important;
+    font-size: 20px !important;
+    background: black !important;
+    color: white !important;
+    border-radius: 15px !important;
+}
 
 
+.devLogoutButton{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 0 15px;
+}

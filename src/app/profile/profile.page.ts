@@ -15,4 +15,8 @@ export class ProfilePage implements OnInit {
   devBack(){
     this.navCtrl.navigateForward('udashboard');
   }
+  logout(){
+    localStorage.removeItem('user');
+    this.navCtrl.navigateRoot('login')
+  }
 }
