@@ -2,6 +2,7 @@
 ion-content{
     --background:#f0f4fe;
 }
+
 .devBAckButton {
     margin-top: 40px;
   }
@@ -26,6 +27,9 @@ ion-content{
         max-width: 300px;
         width: 100%;
     }
+}
+.hide{
+display: none;
 }
 button.devBtn{
     width: 100% !important;
