@@ -64,6 +64,7 @@ export class UpdateProfilePage implements OnInit {
         user.uid=this.getService.user.uid;
         localStorage.setItem('user' ,JSON.stringify(user));
         this.presentToast();
+        this.navCtrl.pop();
       }).catch((err)=>{
         
       })

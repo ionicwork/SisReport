@@ -12,13 +12,13 @@ import { DatahelperService } from '../provider/datahelper.service';
 export class EmployeesPage implements OnInit {
   public allEmployees: any = [];
   dataFetched = false;
-  constructor(public navCtrl: NavController, public dataService: DatahelperService) { }
+  constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
   month: string = "February";
   categories = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   ngOnInit() {
     this.allEmployees = [];
     this.dataFetched = false; 
-    firebase.database().ref('users').orderByChild('adminUid').equalTo(this.dataService.user.uid).once('value', (snapshot) => {
+    firebase.database().ref('users').orderByChild('adminUid').equalTo(this.dataHelper.user.uid).once('value', (snapshot) => {
       var data = snapshot.val();
       for (var key in data) {
         this.allEmployees.push(data[key]);

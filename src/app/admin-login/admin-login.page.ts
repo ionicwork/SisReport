@@ -16,7 +16,7 @@ export class AdminLoginPage implements OnInit {
   Password:any;
   constructor(public navCtrl:NavController ,
     private _fb:FormBuilder,
-    public getService:DatahelperService,
+    public dataHelper:DatahelperService,
     public utils:UtilsService
     ) { }
 
@@ -40,7 +40,7 @@ export class AdminLoginPage implements OnInit {
       console.log('reponse=' , userData.uid);
       firebase.auth().signInWithEmailAndPassword(userData.Email,userData.Password).then(res=>{
         // console.log('reponse=' , res.uid);
-        this.getService.getAdminData(res.user.uid);
+        this.dataHelper.getAdminData(res.user.uid);
       }).catch(err=>{
         err;
         setTimeout(() => {

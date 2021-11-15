@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   public onLoginForm:FormGroup ;
   constructor(public navCtrl: NavController,
     public _fb:FormBuilder,
-    public getService:DatahelperService,
+    public dataHelper:DatahelperService,
     public utils:UtilsService
     ) { }
 
@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
       console.log('reponse=' , userData.uid);
       firebase.auth().signInWithEmailAndPassword(userData.Email,userData.Password).then(res=>{
         // console.log('reponse=' , res.uid);
-        this.getService.getEmployeeData(res.user.uid);
+        this.dataHelper.getEmployeeData(res.user.uid);
         this.utils.dismiss();
       }).catch(err=>{
         err;

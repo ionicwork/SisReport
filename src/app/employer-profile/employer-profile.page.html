@@ -11,27 +11,27 @@
 
   <div class="devProfileData">
     <img src="../../assets/LogIn team/admin Leave forms/Ellipse 12.png" alt="">
-    <h1>{{getService.user.FullName}}</h1>
-    <p>{{getService.user.Skills}}</p>
+    <h1>{{dataHelper.user.FullName}}</h1>
+    <p>{{dataHelper.user.Skills}}</p>
   </div>
 
   <div class="devProfileDetail">
     <div class="devEmail">
      <h3>Email</h3>
-     <p>{{getService.user.Email}}</p>
+     <p>{{dataHelper.user.Email}}</p>
     </div>
     <div class="devJoinigDate">
      <h3>Joining Date</h3>
-     <p>{{getService.user.Date}}</p>
+     <p>{{dataHelper.user.Date}}</p>
     </div>
     <div class="devPhone">
        <h3>Phone</h3>
-       <p>{{getService.user.Phone}}</p>
+       <p>{{dataHelper.user.Phone}}</p>
     </div>
   </div>
 </div>
 
 <div class="devLogoutButton" (click)="logout()">
-  <button  class="devBtn" type="submit" style="background-color: #0000;" >Logout</button>
+  <ion-button  class="devBtn" type="submit" color="dark" expand="block" >Logout</ion-button>
 </div>
 </ion-content>

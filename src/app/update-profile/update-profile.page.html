@@ -61,8 +61,7 @@
                  
                   <div class="devbuttons">
                     
-                      <button  class="devBtn" type="submit" *ngIf="!loading" style="background-color: #0000;"  >Update</button>
-                      <button  class="devBtn" type="submit" *ngIf="loading" style="background-color: #0000;"  ><ion-spinner></ion-spinner></button>
+                      <ion-button expand="block" color="dark" type="submit" [disabled]="!onUpdateForm.valid" *ngIf="!loading"   >Update</ion-button>
                   </div>
                 </ion-col>
               </ion-row>

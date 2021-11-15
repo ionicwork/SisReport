@@ -15,7 +15,7 @@ export class AddEmployeePage implements OnInit {
   constructor(
     public navCtrl:NavController,
     public _fb:FormBuilder,
-    public getService:DatahelperService,
+    public dataHelper:DatahelperService,
     public utils:UtilsService
   ) { }
 
@@ -57,7 +57,7 @@ export class AddEmployeePage implements OnInit {
     firebase.auth().createUserWithEmailAndPassword(userData.Email , userData.Password).then((user)=>{
       if(firebase.auth().currentUser){
         userData.uid = firebase.auth().currentUser.uid;
-        userData.adminUid=this.getService.user.uid;
+        userData.adminUid=this.dataHelper.user.uid;
          this.saveUserDataAfterSignUp(userData);
       }
     }).catch(err=>{

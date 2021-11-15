@@ -10,7 +10,7 @@ import { DatahelperService } from '../provider/datahelper.service';
 })
 export class EmployerProfilePage implements OnInit {
 
-  constructor(public navCtrl:NavController , public getService:DatahelperService ) { }
+  constructor(public navCtrl:NavController , public dataHelper:DatahelperService ) { }
 
   ngOnInit() {
   }
@@ -19,7 +19,7 @@ export class EmployerProfilePage implements OnInit {
   }
    logout(){
     localStorage.removeItem('user');
-    this.navCtrl.navigateRoot('register')
+    this.navCtrl.navigateRoot('admin-login')
   }
   devBack(){
     this.navCtrl.navigateBack('dashboard');

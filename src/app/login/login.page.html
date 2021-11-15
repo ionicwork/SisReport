@@ -35,7 +35,7 @@
     </div>
     
     <div class="devbutton">
-      <ion-button type="submit" color="favorite" expand="block">Login</ion-button>
+      <ion-button type="submit" [disabled]="!onLoginForm.valid" color="favorite" expand="block">Login</ion-button>
       <ion-button expand="block" color="favorite" fill="outline" (click)=" admin()"><ion-icon name="briefcase"></ion-icon>I'm Employer</ion-button>
 
     </div>

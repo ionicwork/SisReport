@@ -17,7 +17,7 @@ export class RegisterPage implements OnInit {
   constructor(
     public navCtrl:NavController,
     public _fb:FormBuilder,
-    public getService:DatahelperService,
+    public dataHelper:DatahelperService,
     public utils:UtilsService
     ) { }
 
@@ -95,7 +95,7 @@ export class RegisterPage implements OnInit {
 
   saveUserDataAfterSignUp(userData){
     firebase.database().ref(`admins/${userData.uid}`).set(userData).then(()=>{
-       this.getService.getAdminData(userData.uid);
+       this.dataHelper.getAdminData(userData.uid);
        this.utils.dismiss();
     }).catch((err)=>{
       this.utils.presentLoading();
