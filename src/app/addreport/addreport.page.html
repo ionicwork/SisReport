@@ -14,12 +14,13 @@
     <img src="../../assets/LogIn team/add report/reportimg.png" alt="">
   </div>
 </div>
+<form [formGroup]="addReport" (ngSubmit)="addDailyReport(addReport.value)"  >
   <div class="devform" >
-    <form [formGroup]="addReport" (ngSubmit)="addDailyReport(addReport.value)"  >
+   
     <ion-label>Title</ion-label>
     <ion-item>
       
-      <ion-input [(ngModel)]="title" formControlName="title" placeholder="Seoi home layout"></ion-input>
+      <ion-input   formControlName="title" placeholder="Report title here..."></ion-input>
       
     </ion-item>
     <p class="errorMsg" *ngIf="addReport.get('title').hasError('required')  && 
@@ -28,20 +29,20 @@
               </p>
     <ion-label >Description</ion-label>
     <ion-item>
-      <ion-textarea [(ngModel)]="description" autoGrow="true" rows="1" formControlName="description"  placeholder="Seoi home layout home layout "></ion-textarea>
+      <ion-textarea   autoGrow="true" rows="1" formControlName="description"  placeholder="Report description here..."></ion-textarea>
       
     </ion-item>
     <p class="errorMsg" *ngIf="addReport.get('description').hasError('required')  && 
       (addReport.get('description').dirty || addReport.get('description').touched)">
                 *Description is Required
               </p>
-  </form>
+ 
   </div>
   
 <div class="devcreatebtn">
-  <button  class="devBtn" type="submit" style="background-color: #0000;" >Create</button>
+  <ion-button [disabled]="!addReport.valid"  type="submit" color="dark" expand="block" >Create</ion-button>
 </div>
-
+</form>
 </ion-content>
 
 

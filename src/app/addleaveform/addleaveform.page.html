@@ -12,24 +12,32 @@
   <div class="devBanner">
     <img src="../../assets/userleaveform.png" alt="">
   </div>
-
+  <form [formGroup]="addLeave" (ngSubmit)="addUserLeave(addLeave.value)"  >
   <div class="devform" >
     <ion-label>Title</ion-label>
     <ion-item>
       
-      <ion-input placeholder="Seoi home layout"></ion-input>
+      <ion-input  formControlName="title" placeholder="Leave title here..."></ion-input>
     </ion-item>
+    <p class="errorMsg" *ngIf="addLeave.get('title').hasError('required')  && 
+      (addLeave.get('title').dirty || addLeave.get('title').touched)">
+                *Title is Required
+              </p>
     <ion-label >Description</ion-label>
     <ion-item>
-      
-      <ion-input placeholder="Seoi home layout home layout "></ion-input>
+
+      <ion-textarea  autoGrow="true" rows="1" formControlName="description"  placeholder="Leave description here..."></ion-textarea>
     </ion-item>
+    <p class="errorMsg" *ngIf="addLeave.get('description').hasError('required')  && 
+      (addLeave.get('description').dirty || addLeave.get('description').touched)">
+                *Description is Required
+              </p>
   </div>
   
 <div class="devcreatebtn">
-  <button  class="devBtn" type="submit" style="background-color: #0000;" (click)="dashboard()">Create</button>
+  <ion-button [disabled]="!addLeave.valid"  type="submit" color="dark" expand="block" >Create</ion-button>
 </div>
-
+  </form>
 </ion-content>
 
 

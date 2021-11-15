@@ -5,8 +5,8 @@
        <h3  >Dashboard</h3>
        <div class="devprofile">
       <div  class="devprofilename">
-        <p style="font-weight: 900;">Jahanzaib Iqbal</p>
-        <p>Business Developer</p>
+        <p style="font-weight: 900;">{{dataHelper.user.FullName}}</p>
+        <p>{{dataHelper.user.Skills}}</p>
       </div>
 
       <div class="devavatar" slot="end">
@@ -61,30 +61,6 @@
   
   <h2 style="font-weight: 600;">Recently Reports</h2>
  <ion-card (click)="gotoreportdetail()" class="repotdetail" >
-  <div class="reportcontent">
-    <h3>Ipug responsive issue</h3>
-   <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
-    <div class="devreporttime">
-      <ion-icon name="time-outline"></ion-icon>
-      <p>10:20PM , Jan 12,2020</p>
-    </div>
-  </div>
-
-    <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
- </ion-card>
- <ion-card (click)="gotoreportdetail()" class="repotdetail" >
-  <div class="reportcontent">
-    <h3>Ipug responsive issue</h3>
-   <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
-    <div class="devreporttime">
-      <ion-icon name="time-outline"></ion-icon>
-      <p>10:20PM , Jan 12,2020</p>
-    </div>
-  </div>
-
-    <ion-icon class="deviconforword" size="large" name="chevron-forward-outline"></ion-icon>
- </ion-card>
- <ion-card class="repotdetail" >
   <div class="reportcontent">
     <h3>Ipug responsive issue</h3>
    <p style="margin: 0;  ">Angular is running in is on the mode of the. Call enableProdMode...</p>
