@@ -138,10 +138,10 @@
   <ion-card *ngFor="let report of reports" (click)="gotoreportdetail()" class="repotdetail" >
     <div class="reportcontent">
       <h3>{{report.title}}</h3>
-     <p style="margin: 0;  ">{{(report.description.length>80)? (report.description | slice:0:80)+'...':(report.description)}}</p>
+     <p style="margin: 0;  ">{{(report.description?.length>80)? (report.description | slice:0:80)+'...':(report.description)}}</p>
       <div class="devreporttime">
         <ion-icon name="time-outline"></ion-icon>
-        <p>{{report.timeStamp}} , Jan 12,2020</p>
+        <p>{{report.timeStamp | date : 'yyyy-MM-dd hh:mm a'}}</p>
       </div>
     </div>
   

@@ -21,11 +21,15 @@ export class DatahelperService {
   getAdminData(uid){
     firebase.database().ref('admins/'+uid).once('value',(snapshot)=>{
      console.log(snapshot.val());
-     localStorage.setItem('user' ,JSON.stringify(snapshot.val()));
      this.user=snapshot.val();
-     
+     if(this.user && this.user?.uid){
+      localStorage.setItem('user' ,JSON.stringify(snapshot.val()));
+      this.navCtrl.navigateRoot('dashboard');
+     }else{
+       this.utils.presentToast("Use Employee Login Page to Login");
+       this.navCtrl.navigateForward("/login");
+     }
      this.utils.dismiss();
-     this.navCtrl.navigateRoot('dashboard');
     }).catch((err)=>{
     })
   }

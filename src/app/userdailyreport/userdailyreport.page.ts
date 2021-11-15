@@ -17,13 +17,10 @@ export class UserdailyreportPage implements OnInit {
   ngOnInit() {
     this.reports=[];
     this.dataFetched = false; 
-    firebase.database().ref('reports').orderByChild("userUid").equalTo(this.dataHelper.user.uid).once('value',(snapshot)=>{
+    debugger
+    firebase.database().ref('reports').orderByChild("userUid").equalTo(this.dataHelper.user.uid).on('child_added',(snapshot)=>{
       // console.log(this.reports);
-      var data=snapshot.val();
-      for(var key in data){
-        this.reports.push(data[key]);
-
-      }
+      this.reports.push(snapshot.val());
       this.dataFetched=true;
     })
   }
