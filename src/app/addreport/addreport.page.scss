@@ -38,7 +38,7 @@ ion-content{
         border-bottom: 2px solid;
         border-color: #6e7f91;
         --background: transparent;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
     ion-label{
         font-size: 21px;
@@ -46,17 +46,17 @@ ion-content{
         color: #6e7f91;
     }
 }
-.devcreatebtn{
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    padding: 0 15px;
-    button.devBtn{
-        width: 100% !important;
-        padding: 15px 0 !important;
-        font-size: 20px !important;
-        background: black !important;
-        color: white !important;
-        border-radius: 15px !important;
-    }
-}
+// .devcreatebtn{
+//     position: absolute;
+//     bottom: 20px;
+//     width: 100%;
+//     padding: 0 15px;
+//     button.devBtn{
+//         width: 100% !important;
+//         padding: 15px 0 !important;
+//         font-size: 20px !important;
+//         background: black !important;
+//         color: white !important;
+//         border-radius: 15px !important;
+//     }
+// }

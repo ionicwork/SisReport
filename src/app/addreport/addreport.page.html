@@ -15,20 +15,31 @@
   </div>
 </div>
   <div class="devform" >
+    <form [formGroup]="addReport" (ngSubmit)="addDailyReport(addReport.value)"  >
     <ion-label>Title</ion-label>
     <ion-item>
       
-      <ion-input placeholder="Seoi home layout"></ion-input>
+      <ion-input [(ngModel)]="title" formControlName="title" placeholder="Seoi home layout"></ion-input>
+      
     </ion-item>
+    <p class="errorMsg" *ngIf="addReport.get('title').hasError('required')  && 
+      (addReport.get('title').dirty || addReport.get('title').touched)">
+                *Title is Required
+              </p>
     <ion-label >Description</ion-label>
     <ion-item>
+      <ion-textarea [(ngModel)]="description" autoGrow="true" rows="1" formControlName="description"  placeholder="Seoi home layout home layout "></ion-textarea>
       
-      <ion-input placeholder="Seoi home layout home layout "></ion-input>
     </ion-item>
+    <p class="errorMsg" *ngIf="addReport.get('description').hasError('required')  && 
+      (addReport.get('description').dirty || addReport.get('description').touched)">
+                *Description is Required
+              </p>
+  </form>
   </div>
   
 <div class="devcreatebtn">
-  <button  class="devBtn" type="submit" style="background-color: #0000;" (click)="dashboard()">Create</button>
+  <button  class="devBtn" type="submit" style="background-color: #0000;" >Create</button>
 </div>
 
 </ion-content>
