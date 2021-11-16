@@ -18,7 +18,7 @@ export class EmployerProfilePage implements OnInit {
     this.navCtrl.navigateForward('update-profile')
   }
    logout(){
-    localStorage.removeItem('user');
+    localStorage.clear();
     this.navCtrl.navigateRoot('admin-login')
   }
   devBack(){

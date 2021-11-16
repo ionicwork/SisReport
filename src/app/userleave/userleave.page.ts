@@ -8,27 +8,35 @@ import firebase from 'firebase';
   styleUrls: ['./userleave.page.scss'],
 })
 export class UserleavePage implements OnInit {
-  month:string="Febuary"
+  month:string ;
   public leaves:any=[];
   dataFetched = false;
+  months: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
+  { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
+  { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
   constructor(public navCtrl:NavController,public dataHelper:DatahelperService) { }
 
   ngOnInit() {
-    this.leaves=[];
-    this.dataFetched = false; 
-    firebase.database().ref('leaves').orderByChild("userUid").equalTo(this.dataHelper.user.uid).once('value',(snapshot)=>{
-      // console.log(this.reports);
+     // console.log(this.months);
+     this.month=this.months[new Date().getMonth()].month;
+     // debugger
+     this.leaves = [];
+     this.dataFetched = false;
+     // debugger
+     firebase.database().ref('leaves').orderByChild("userUid").equalTo(this.dataHelper.user.uid).on('child_added', (snapshot) => {
       var data=snapshot.val();
-      for(var key in data){
-        this.leaves.push(data[key]);
+      var month=new Date(data.timeStamp).getMonth();
+      this.months[month].array.push(snapshot.val());
+      // debugger
+      this.months[month].array.sort((a, b) => b.timeStamp - a.timeStamp)
+      this.dataFetched = true;
 
-      }
-      this.dataFetched=true;
+
     })
   }
 
   devBack(){
-    this.navCtrl.navigateForward('udashboard');
+    this.navCtrl.pop();
   }
   addleaveform(){
     this.navCtrl.navigateForward('addleaveform');

@@ -27,8 +27,8 @@
     </div>
   </div>
   <div class="devReports">
-    <ion-segment scrollable="true" value="heart"  [(ngModel)]="month">
-      <ion-segment-button *ngFor="let m of months" [value]="m.month">
+    <ion-segment scrollable="true" value="heart" mode="md" [(ngModel)]="month">
+      <ion-segment-button *ngFor="let m of months" [value]="m.month" >
         <ion-label >{{m.month}}</ion-label>
       </ion-segment-button>
     </ion-segment>

@@ -28,7 +28,7 @@ export class AddleaveformPage implements OnInit {
 
 
   devBack(){
-    this.navCtrl.navigateForward('leaveform');
+    this.navCtrl.pop();
   }
   
   addUserLeave(leaveData){

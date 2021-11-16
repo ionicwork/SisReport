@@ -36,7 +36,7 @@ export class UserdailyreportPage implements OnInit {
   }
 
   devBack() {
-    this.navCtrl.navigateForward('udashboard');
+    this.navCtrl.pop();
   }
 
   gotoaddreport() {
