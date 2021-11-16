@@ -9,15 +9,12 @@ import { UserdailyreportPageRoutingModule } from './userdailyreport-routing.modu
 
 import { UserdailyreportPage } from './userdailyreport.page';
 
-import { Ng2SearchPipeModule } from 'ng2-search-filter'
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     UserdailyreportPageRoutingModule,
-    Ng2SearchPipeModule
   ],
   declarations: [UserdailyreportPage]
 })

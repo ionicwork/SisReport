@@ -11,29 +11,24 @@ import { DatahelperService } from '../provider/datahelper.service';
 export class UserdailyreportPage implements OnInit {
   month: string ;
   searchTerm:string;
+  allReports: any;
   constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
-  public reports: any = [];
-  dataFetched = false;
-  months: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
-  { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
-  { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
+  
   ngOnInit() {
     // console.log(this.months);
-    this.month=this.months[new Date().getMonth()].month;
-    // debugger
-    this.reports = [];
-    this.dataFetched = false;
-    // debugger
-    firebase.database().ref('reports').orderByChild("userUid").equalTo(this.dataHelper.user.uid).on('child_added', (snapshot) => {
-      var data=snapshot.val();
-      var month=new Date(data.timeStamp).getMonth();
-      this.months[month].array.push(snapshot.val());
+
+    this.month=this.dataHelper.months[new Date().getMonth()].month;
+    this.allReports=JSON.parse(JSON.stringify(this.dataHelper.months));
+    this.dataHelper.dataFetched
+    debugger
+  }
+  filter(){
+    for (let index = 0; index < this.dataHelper.months.length; index++) {
       // debugger
-      this.months[month].array.sort((a, b) => b.timeStamp - a.timeStamp)
-      this.dataFetched = true;
-
-
-    })
+      this.allReports[index].array=this.dataHelper.months[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      // debugger;
+    }
+   
   }
 
   devBack() {

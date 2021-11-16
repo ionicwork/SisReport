@@ -13,6 +13,7 @@ export class UdashboardPage implements OnInit {
   constructor(public navCtrl:NavController, public dataHelper:DatahelperService) { }
 
   ngOnInit() {
+    this.dataHelper.getData();
   }
 
   gotoprofile(){
