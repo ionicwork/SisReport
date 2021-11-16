@@ -10,6 +10,7 @@ import { DatahelperService } from '../provider/datahelper.service';
 })
 export class UserdailyreportPage implements OnInit {
   month: string ;
+  searchTerm:string;
   constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
   public reports: any = [];
   dataFetched = false;

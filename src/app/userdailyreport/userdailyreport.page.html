@@ -12,11 +12,16 @@
   </div>
   <div class="devSearch">
     <div class="devSearchBar" style="position: relative;">
-      <ion-searchbar ></ion-searchbar>
-      <div class="devCalender">
+      <ion-searchbar 
+      [(ngModel)]="searchTerm"
+      showCancelButtom="focus"
+      animated
+
+      ></ion-searchbar>
+      <!-- <div class="devCalender">
         <ion-datetime #picker pickerFormat="DD MMMM YYYY" [min]="datePickerMin" [(ngModel)]="datePicker" (ionChange)="changeDate()"></ion-datetime>
         <ion-icon name="calendar" style="font-size:25px ;" (click)="picker.open()"></ion-icon>
-      </div>
+      </div> -->
     </div>
     
   
@@ -35,12 +40,12 @@
 </div>
 
 <div  [ngSwitch]="month">
-  <div *ngFor="let m of months" [class.hide]="month!=m.month"  class="january">
+  <div *ngFor="let m of months " [class.hide]="month!=m.month"  class="january">
     <div *ngSwitchCase="m.month"  >
       <ion-row  *ngIf="!dataFetched" class="spinner">
         <ion-spinner></ion-spinner>
       </ion-row>
-      <ion-card *ngFor="let report of m.array" (click)="gotoreportdetail()" class="repotdetail" >
+      <ion-card *ngFor="let report of m.array | filter:searchTerm" (click)="gotoreportdetail()" class="repotdetail" >
         <div class="reportcontent">
           <h3>{{report.title}}</h3>
          <p style="margin: 0;  ">{{(report.description?.length>80)? (report.description | slice:0:80)+'...':(report.description)}}</p>

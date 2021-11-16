@@ -75,7 +75,7 @@
                   <ion-label position="floating" class="required" mode="md">Joining Date</ion-label>
                   <!-- <ion-input type="text" 
                       placeholder="Joining Date" formControlName="Date"></ion-input> -->
-                  <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2052-12-09" formControlName="Date">
+                  <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14"  formControlName="Date">
                   </ion-datetime>
                 </ion-item>
                 <p class="errorMsg" *ngIf="onRegisterForm.get('Date').hasError('required')  && 
