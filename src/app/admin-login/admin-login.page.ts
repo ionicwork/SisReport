@@ -37,16 +37,13 @@ export class AdminLoginPage implements OnInit {
 
    Login(userData){
       this.utils.presentLoading("Please Wait");
-      console.log('reponse=' , userData.uid);
       firebase.auth().signInWithEmailAndPassword(userData.Email,userData.Password).then(res=>{
-        // console.log('reponse=' , res.uid);
         this.dataHelper.getAdminData(res.user.uid);
       }).catch(err=>{
-        err;
         setTimeout(() => {
         this.utils.dismiss();
         this.utils.presentToast(err.message)
-        }, 500);
+        }, 1000);
       })
      
 

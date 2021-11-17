@@ -4,7 +4,9 @@ ion-content{
 .devBAckButton {
     margin-top: 40px;
   }
- 
+.hide{
+    display: none;
+} 
   .devBAckButton img {
     object-fit: cover;
     width: 100%;
@@ -172,4 +174,8 @@ button.devBtn{
     p{
         margin: 0;
     }
+}
+.spinner{
+    margin-top: 10vh;
+    justify-content: center;
 }

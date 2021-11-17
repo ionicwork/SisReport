@@ -10,10 +10,14 @@ import { DatahelperService } from '../provider/datahelper.service';
 export class DashboardPage implements OnInit {
 
   constructor(public navCtrl:NavController,
-    public getService:DatahelperService
+    public dataHelper:DatahelperService
     ) { }
 
   ngOnInit() {
+    // debugger;
+    var uid=localStorage.getItem('uid')
+    // debugger;
+    this.dataHelper.getAdminFirebaseData(uid);
   }
   
   employee(){

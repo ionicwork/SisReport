@@ -13,6 +13,6 @@ export class UserprofiledetailPage implements OnInit {
   ngOnInit() {
   }
   devBack(){
-    this.navCtrl.navigateForward('udashboard');
+    this.navCtrl.navigateBack('udashboard');
   }
 }

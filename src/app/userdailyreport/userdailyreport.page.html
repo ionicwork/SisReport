@@ -29,14 +29,14 @@
   </div>
   <div class="devReports">
     <ion-segment scrollable="true" value="heart" mode="md" [(ngModel)]="month">
-      <ion-segment-button *ngFor="let m of allReports" [value]="m.month" >
+      <ion-segment-button *ngFor="let m of dataHelper.reportsData" [value]="m.month" >
         <ion-label >{{m.month}}</ion-label>
       </ion-segment-button>
     </ion-segment>
 </div>
 
 <div  [ngSwitch]="month">
-  <div *ngFor="let m of allReports " [class.hide]="month!=m.month"  class="january">
+  <div *ngFor="let m of dataHelper.reportsData " [class.hide]="month!=m.month"  class="january">
     <div *ngSwitchCase="m.month"  >
       <ion-row  *ngIf="!dataHelper.dataFetched" class="spinner">
         <ion-spinner></ion-spinner>

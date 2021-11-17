@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { DatahelperService } from '../provider/datahelper.service';
 
 @Component({
   selector: 'app-dailyreport',
@@ -7,11 +8,25 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./dailyreport.page.scss'],
 })
 export class DailyreportPage implements OnInit {
-  month: string = "February";
-    categories = ['January' , 'February' , 'March' , 'April' , 'May' ,'June' , 'July' , 'August' , 'September' , 'October' , 'November' , 'December'] 
-  constructor(public navCtrl:NavController) { }
+  month: string ;
+  searchTerm:string;
+  allReports: any;
+  constructor(public navCtrl:NavController , public dataHelper:DatahelperService) { }
 
   ngOnInit() {
+    var uid =this.dataHelper.months[10].array[0].userUid
+    var name=this.dataHelper.allAdminEmployees[this.dataHelper.months[10].array[0].userUid].FullName
+    debugger
+    this.month=this.dataHelper.months[new Date().getMonth()].month;
+    this.allReports=JSON.parse(JSON.stringify(this.dataHelper.months));
+  }
+  filter(){
+    for (let index = 0; index < this.dataHelper.months.length; index++) {
+      // debugger
+      this.allReports[index].array=this.dataHelper.months[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      // debugger;
+    }
+   
   }
 
   onCategoryChange(category){
@@ -20,7 +35,8 @@ export class DailyreportPage implements OnInit {
   devBack(){
     this.navCtrl.navigateBack('dashboard');
   }
-  gotoreportdetail(){
+  gotoreportdetail(report){
+    this.dataHelper.reportDetail=report;
     this.navCtrl.navigateForward('reportdetail')
   }
 }

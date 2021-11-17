@@ -14,7 +14,7 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
   }
   devBack(){
-    this.navCtrl.navigateForward('udashboard');
+    this.navCtrl.navigateBack('udashboard');
   }
   logout(){
     localStorage.clear();

@@ -32,6 +32,7 @@ export class AddreportPage implements OnInit {
   addDailyReport(reportData){
     reportData.timeStamp=Number(new Date());
     reportData.userUid=this.dataHelper.user.uid;
+    reportData.adminUid=this.dataHelper.user.adminUid;
     console.log(reportData);
     firebase.database().ref('reports').push(reportData);
     this.utils.presentToast("Report Successfully Added!");
