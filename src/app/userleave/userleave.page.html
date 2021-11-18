@@ -12,11 +12,13 @@
   </div>
   <div class="devSearch">
     <div class="devSearchBar" style="position: relative;">
-      <ion-searchbar></ion-searchbar>
-      <div class="devCalender">
+      <ion-searchbar 
+      [(ngModel)]="searchTerm"  (ionChange)="filter()"
+      ></ion-searchbar>
+      <!-- <div class="devCalender">
         <ion-datetime #picker pickerFormat="DD MMMM YYYY" [min]="datePickerMin" [(ngModel)]="datePicker" (ionChange)="changeDate()"></ion-datetime>
         <ion-icon name="calendar" style="font-size:25px ;" (click)="picker.open()"></ion-icon>
-      </div>
+      </div> -->
     </div>
     <div class="devBtn">
       <!-- <ion-button color="dark">+Add Employee</ion-button> -->

@@ -10,12 +10,12 @@
   </div>
   <div class="devSearch">
     <div class="devSearchBar" style="position: relative;">
-      <ion-searchbar mode="md"></ion-searchbar>
-      <div class="devCalender">
+      <ion-searchbar mode="md" [(ngModel)]="searchTerm" (ionChange)="filter()"></ion-searchbar>
+      <!-- <div class="devCalender">
         <ion-datetime #picker pickerFormat="DD MMMM YYYY" [min]="datePickerMin" [(ngModel)]="datePicker"
           (ionChange)="changeDate()"></ion-datetime>
         <ion-icon name="calendar" style="font-size:25px ;" (click)="picker.open()"></ion-icon>
-      </div>
+      </div> -->
     </div>
 
 

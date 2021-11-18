@@ -13,13 +13,16 @@ export class DatahelperService {
   reports: any;
   reportsData: any;
   reportDetail: any;
+  leavesData: any;
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,
     public utils: UtilsService
   ) {
 
   }
+    
 
+   
   dataFetched = false;
   months: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
   { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
@@ -107,7 +110,23 @@ export class DatahelperService {
       this.months[month].array.push(snapshot.val());
       this.months[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
       this.reportsData = this.months;
-      debugger;
+      // debugger;
+      this.dataFetched = true;
+    })
+  }
+
+  getEmployeeLeaves() {
+    this.months = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
+    { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
+    { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
+    this.dataFetched = false;
+    firebase.database().ref('leaves').orderByChild("userUid").equalTo(this.user.uid).on('child_added', (snapshot) => {
+      var data = snapshot.val();
+      var month = new Date(data.timeStamp).getMonth();
+      this.months[month].array.push(snapshot.val());
+      this.months[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
+      this.leavesData = this.months;
+      // debugger;
       this.dataFetched = true;
     })
   }

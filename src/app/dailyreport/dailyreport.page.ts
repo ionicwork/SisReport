@@ -14,9 +14,9 @@ export class DailyreportPage implements OnInit {
   constructor(public navCtrl:NavController , public dataHelper:DatahelperService) { }
 
   ngOnInit() {
-    var uid =this.dataHelper.months[10].array[0].userUid
-    var name=this.dataHelper.allAdminEmployees[this.dataHelper.months[10].array[0].userUid].FullName
-    debugger
+    // var uid =this.dataHelper.months[10].array[0].userUid
+    // var name=this.dataHelper.allAdminEmployees[this.dataHelper.months[10].array[0].userUid].FullName
+    // debugger
     this.month=this.dataHelper.months[new Date().getMonth()].month;
     this.allReports=JSON.parse(JSON.stringify(this.dataHelper.months));
   }
@@ -37,6 +37,7 @@ export class DailyreportPage implements OnInit {
   }
   gotoreportdetail(report){
     this.dataHelper.reportDetail=report;
+    console.log(report);
     this.navCtrl.navigateForward('reportdetail')
   }
 }

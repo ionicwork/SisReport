@@ -36,8 +36,11 @@ export class UserdailyreportPage implements OnInit {
     this.navCtrl.navigateForward('addreport');
   }
 
-  gotoreportdetail() {
+  gotoreportdetail(report) {
+    this.dataHelper.reportDetail=report;
     this.navCtrl.navigateForward('userprofiledetail');
   }
+
+  
 
 }

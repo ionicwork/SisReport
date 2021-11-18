@@ -41,7 +41,7 @@
       <ion-row  *ngIf="!dataHelper.dataFetched" class="spinner">
         <ion-spinner></ion-spinner>
       </ion-row>
-      <ion-card *ngFor="let report of m.array" (click)="gotoreportdetail()" class="repotdetail" >
+      <ion-card *ngFor="let report of m.array" (click)="gotoreportdetail(report)" class="repotdetail" >
         <div class="reportcontent">
           <h3>{{report.title}}</h3>
          <p style="margin: 0;  ">{{(report.description?.length>80)? (report.description | slice:0:80)+'...':(report.description)}}</p>
