@@ -6,11 +6,13 @@
 
   <div class="devReportDetailMain">
     <div class="devreportContent">
-        <div class="devProfile">
-          <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
-          <h1>{{dataHelper.allAdminEmployees[dataHelper.reportDetail.userUid].FullName}}</h1>
-          <p>{{dataHelper.allAdminEmployees[dataHelper.reportDetail.userUid].Skills}}</p>
-        </div>
+        <ion-row style="justify-content: center;">
+          <div class="devProfile">
+            <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+            <h1 style="text-align:center ;">{{dataHelper.allAdminEmployees[dataHelper.reportDetail.userUid].FullName}}</h1>
+            <p style="text-align:center ;">{{dataHelper.allAdminEmployees[dataHelper.reportDetail.userUid].Skills}}</p>
+          </div>
+        </ion-row>
       <h1>{{ dataHelper.reportDetail.title}}</h1>
       <div class="devDescription">
         <h3></h3>
