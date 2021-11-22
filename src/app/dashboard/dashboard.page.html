@@ -35,7 +35,8 @@
            <h1>Daily Report</h1>
           </div>
           <div class="devCounter">
-            <p>90</p>
+            <p *ngIf='this.dataHelper.dataFetched == true;'>{{this.dataHelper.reports.length}}</p>
+            <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
           </div>
         </div>
         <div class="devReport" (click)="leave()">

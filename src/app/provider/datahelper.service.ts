@@ -14,15 +14,15 @@ export class DatahelperService {
   reportsData: any;
   reportDetail: any;
   leavesData: any;
+  allReports: any[];
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,
     public utils: UtilsService
   ) {
-
   }
-    
 
-   
+
+
   dataFetched = false;
   months: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
   { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
@@ -32,7 +32,6 @@ export class DatahelperService {
 
   getAdminData(uid) {
     firebase.database().ref('admins/' + uid).once('value', (snapshot) => {
-      console.log(snapshot.val());
       this.user = snapshot.val();
       if (this.user && this.user?.uid) {
         localStorage.setItem('user', JSON.stringify(snapshot.val()));
@@ -51,13 +50,21 @@ export class DatahelperService {
     this.getAdminEmployees(uid);
 
   }
-  getAdminReports(uid) {
+  getAdminReports() {
+    this.allReports=[];
+    this.months = [{ month: 'January', array: [] = [] }, { month: 'February', array: [] = [] }, { month: 'March', array: [] = [] }, { month: 'April', array: [] = [] },
+    { month: 'May', array: [] = [] }, { month: 'June', array: [] = [] }, { month: 'July', array: [] = [] }, { month: 'August', array: [] = [] }, { month: 'September', array: [] = [] },
+    { month: 'October', array: [] = [] }, { month: 'November', array: [] = [] }, { month: 'December', array: [] = [] }]
     this.dataFetched = false;
-    firebase.database().ref('reports').orderByChild("userUid").equalTo(uid).once('value', (snapshot) => {
+    var uid = localStorage.getItem('uid')
+    // debugger;
+    firebase.database().ref('reports').orderByChild("adminUid").equalTo(uid).once('value', (snapshot) => {
       var data = snapshot.val();
+      // debugger;
       for (var key in data) {
         var month = new Date(data[key].timeStamp).getMonth();
         this.months[month].array.push(data[key]);
+        this.reports.push(data[key]);
       }
       this.dataFetched = true;
       for (let index = 0; index < this.months.length; index++) {
@@ -69,14 +76,7 @@ export class DatahelperService {
     firebase.database().ref('users').orderByChild("adminUid").equalTo(uid).once('value', (snapshot) => {
       this.allAdminEmployees = snapshot.val();
       this.reports = [];
-      this.months = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
-      { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
-      { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
-      // debugger
-      for (var key in this.allAdminEmployees) {
-        this.getAdminReports(key);
-      }
-
+      this.getAdminReports();
     })
   }
 
@@ -98,6 +98,7 @@ export class DatahelperService {
   }
   getEmployeeFirebaseData() {
     this.getEmployeeReports();
+    this.getEmployeeLeaves();
   }
   getEmployeeReports() {
     this.months = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
@@ -131,10 +132,10 @@ export class DatahelperService {
     })
   }
 
-getFeedBack(feedback){
-  firebase.database().ref('feedback/').once('value' , (snapshot)=>{
-    var feed = snapshot.val()
-  })
-}
+  getFeedBack(feedback) {
+    firebase.database().ref('feedback/').once('value', (snapshot) => {
+      var feed = snapshot.val()
+    })
+  }
 
 }
