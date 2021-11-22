@@ -11,12 +11,12 @@ import firebase from 'firebase';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAvX_iO61GCN8wzs1q4hx6WId8sZxaPPtY",
-  authDomain: "sisreport-83f8c.firebaseapp.com",
-  projectId: "sisreport-83f8c",
-  storageBucket: "sisreport-83f8c.appspot.com",
-  messagingSenderId: "336950066755",
-  appId: "1:336950066755:web:96109b42dda4d08662def6"
+  apiKey: "AIzaSyAU_miVxgwl-0EpptkuuZSqkM2r8Yv2bdM",
+  authDomain: "sisreport-9ce9f.firebaseapp.com",
+  projectId: "sisreport-9ce9f",
+  storageBucket: "sisreport-9ce9f.appspot.com",
+  messagingSenderId: "607924293351",
+  appId: "1:607924293351:web:12256c9cbb7a5393e31c42"
 };
 firebase.initializeApp(firebaseConfig);
 

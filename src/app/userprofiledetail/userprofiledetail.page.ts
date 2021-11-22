@@ -14,7 +14,7 @@ export class UserprofiledetailPage implements OnInit {
   ngOnInit() {
   }
   devBack(){
-    this.navCtrl.navigateBack('udashboard');
+    this.navCtrl.pop();
   }
 
   // gotoreportdetail(report){

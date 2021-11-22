@@ -131,6 +131,10 @@ export class DatahelperService {
     })
   }
 
-
+getFeedBack(feedback){
+  firebase.database().ref('feedback/').once('value' , (snapshot)=>{
+    var feed = snapshot.val()
+  })
+}
 
 }
