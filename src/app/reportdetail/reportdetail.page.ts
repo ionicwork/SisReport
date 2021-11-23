@@ -13,10 +13,7 @@ export class ReportdetailPage implements OnInit {
   constructor(public navCtrl:NavController , public dataHelper:DatahelperService , public _fb:FormBuilder,) { }
   public feedback:FormGroup;
   async ngOnInit() {
-    firebase.database().ref('feedback').on('value', (snapshot) => {
-      var data=snapshot.val();
-      console.log(data);
-    });
+    
      
     this.feedback = this._fb.group({
       feedback: ['', Validators.compose([ 
@@ -27,12 +24,11 @@ export class ReportdetailPage implements OnInit {
     
   }
   Feedback(postFeedback){
-    postFeedback.adminUid=this.dataHelper.user.adminUid;
     postFeedback.userUid=this.dataHelper.user.uid;
     firebase.database().ref('feedback').push(postFeedback);
   }
   devBack(){
-    this.navCtrl.navigateBack('dailyreport');
+    this.navCtrl.pop();
 
   }
 

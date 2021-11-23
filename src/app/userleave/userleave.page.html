@@ -35,12 +35,12 @@
 </div>
 
 <div  [ngSwitch]="month">
-  <div *ngFor="let m of months" [class.hide]="month!=m.month"  class="january">
+  <div  *ngFor="let m of dataHelper.leavesData " [class.hide]="month!=m.month"  class="january">
     <div *ngSwitchCase="m.month"  >
-      <ion-row  *ngIf="!dataFetched" class="spinner">
+      <ion-row  *ngIf="!dataHelper.dataFetched" class="spinner">
         <ion-spinner></ion-spinner>
       </ion-row>
-      <ion-card *ngFor="let leave of m.array" (click)="gotoreportdetail()" class="repotdetail" >
+      <ion-card *ngFor="let leave of m.array" (click)="gotoreportdetail(leave)" class="repotdetail" >
         <div class="reportcontent">
           <h3>{{leave.title}}</h3>
          <p style="margin: 0;  ">{{(leave.description?.length>80)? (leave.description | slice:0:80)+'...':(leave.description)}}</p>

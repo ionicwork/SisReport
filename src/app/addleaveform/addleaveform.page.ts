@@ -34,6 +34,7 @@ export class AddleaveformPage implements OnInit {
   addUserLeave(leaveData){
     leaveData.timeStamp=Number(new Date());
     leaveData.userUid=this.dataHelper.user.uid;
+    leaveData.adminUid=this.dataHelper.user.adminUid;
     console.log(leaveData);
     firebase.database().ref('leaves').push(leaveData);
     this.utils.presentToast("leave Successfully Added!");

@@ -92,6 +92,14 @@ const routes: Routes = [
     path: 'add-employee',
     loadChildren: () => import('./add-employee/add-employee.module').then( m => m.AddEmployeePageModule)
   },
+  {
+    path: 'userleavedetail',
+    loadChildren: () => import('./userleavedetail/userleavedetail.module').then( m => m.UserleavedetailPageModule)
+  },
+  {
+    path: 'leavedetail',
+    loadChildren: () => import('./leavedetail/leavedetail.module').then( m => m.LeavedetailPageModule)
+  },
 
 ];
 

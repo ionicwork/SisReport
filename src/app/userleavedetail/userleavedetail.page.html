@@ -8,11 +8,11 @@
   <div class="devReportDetailMain">
   <div class="devreportContent">
 
-    <h1>{{ dataHelper.reportDetail.title}}</h1>
+    <h1>{{ dataHelper.leavesDetail.title}}</h1>
   <div class="devDescription">
     <h3>Description</h3>
 
-    <p> {{ dataHelper.reportDetail.description}}</p>
+    <p> {{ dataHelper.leavesDetail.description}}</p>
   </div>
   <div class="devFeedback">
     <h3>Feedback</h3>
@@ -20,15 +20,16 @@
   </div>
     <div class="devreporttime">
       <ion-icon name="time-outline"></ion-icon>
-      <p>{{ dataHelper.reportDetail.timeStamp |  date : 'dd-MM-yyyy hh:mm a'}}</p>
+      <p>{{ dataHelper.leavesDetail.timeStamp |  date : 'dd-MM-yyyy hh:mm a'}}</p>
     </div>
   </div>
 </div>
 </ion-content>
     <ion-footer>
 
-    <ion-button expand="block" (click)="showAlert(dataHelper.reportDetail)" color="dark" style="margin: 15px;"> delete report </ion-button>
+    <ion-button expand="block" (click)="showAlert(dataHelper.leavesDetail)" color="dark" style="margin: 15px;"> delete Leave </ion-button>
 
     </ion-footer>
+
 
 

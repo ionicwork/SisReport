@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { DatahelperService } from '../provider/datahelper.service';
 
 @Component({
   selector: 'app-leave',
@@ -7,17 +8,32 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./leave.page.scss'],
 })
 export class LeavePage implements OnInit {
-  month: string = "February";
-  categories = ['January' , 'February' , 'March' , 'April' , 'May' ,'June' , 'July' , 'August' , 'September' , 'October' , 'November' , 'December'] 
-  constructor(public navCtrl:NavController) { }
-
+  month: string ;
+  searchTerm:string;
+  allLeaves: any;
+ 
+  constructor(public navCtrl:NavController , public dataHelper:DatahelperService) { }
+ 
   ngOnInit() {
+    // debugger
+    this.month=this.dataHelper.getLeaves[new Date().getMonth()].month;
+    this.allLeaves=JSON.parse(JSON.stringify(this.dataHelper.getLeaves));
+  }
+  filter(){
+    for (let index = 0; index < this.dataHelper.getLeaves.length; index++) {
+      // debugger
+      this.allLeaves[index].array=this.dataHelper.getLeaves[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      // debugger;
+    }
+   
   }
   devBack(){
-    this.navCtrl.navigateBack('dailyreport');
+    this.navCtrl.pop();
   }
-  gotoreportdetail(){
-    this.navCtrl.navigateForward('reportdetail')
+  gotoreportdetail(leave){
+    this.dataHelper.leavesDetail=leave;
+    // console.log(leave);
+    this.navCtrl.navigateForward('leavedetail')
   }
 
 }

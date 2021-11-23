@@ -14,7 +14,7 @@ export class FeedbackPage implements OnInit {
   ngOnInit() {
   }
   devBack(){
-    this.navCtrl.navigateBack('dailyreport');
+    this.navCtrl.pop();
   }
   gotoreportdetail(){
     this.navCtrl.navigateForward('reportdetail')

@@ -30,7 +30,7 @@ export class EmployeesPage implements OnInit {
     console.log(category.detail.value);
   }
   devBack() {
-    this.navCtrl.navigateBack('dashboard');
+    this.navCtrl.pop();
   }
 
   AddEmployee() {

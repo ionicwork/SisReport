@@ -8,31 +8,27 @@ import firebase from 'firebase';
   styleUrls: ['./userleave.page.scss'],
 })
 export class UserleavePage implements OnInit {
-  month:string ;
+  month: string ;
+  searchTerm:string;
   public leaves:any=[];
   dataFetched = false;
-  months: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
-  { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
-  { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
+  // months: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
+  // { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
+  // { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
   constructor(public navCtrl:NavController,public dataHelper:DatahelperService) { }
 
   ngOnInit() {
-     // console.log(this.months);
-     this.month=this.months[new Date().getMonth()].month;
-     // debugger
-     this.leaves = [];
-     this.dataFetched = false;
-     // debugger
-     firebase.database().ref('leaves').orderByChild("userUid").equalTo(this.dataHelper.user.uid).on('child_added', (snapshot) => {
-      var data=snapshot.val();
-      var month=new Date(data.timeStamp).getMonth();
-      this.months[month].array.push(snapshot.val());
+    // console.log(this.months);
+
+    this.month=this.dataHelper.getLeaves[new Date().getMonth()].month;
+  }
+  filter(){
+    for (let index = 0; index < this.dataHelper.getLeaves.length; index++) {
       // debugger
-      this.months[month].array.sort((a, b) => b.timeStamp - a.timeStamp)
-      this.dataFetched = true;
-
-
-    })
+      this.dataHelper.reportsData[index].array=this.dataHelper.getLeaves[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      // debugger;
+    }
+   
   }
 
   devBack(){
@@ -40,6 +36,10 @@ export class UserleavePage implements OnInit {
   }
   addleaveform(){
     this.navCtrl.navigateForward('addleaveform');
+  }
+  gotoreportdetail(leave) {
+    this.dataHelper.leavesDetail=leave;
+    this.navCtrl.navigateForward('userleavedetail');
   }
 
 }

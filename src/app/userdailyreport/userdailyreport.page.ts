@@ -15,7 +15,7 @@ export class UserdailyreportPage implements OnInit {
   constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
   
   ngOnInit() {
-    // console.log(this.months);
+    console.log(this.dataHelper.months);
 
     this.month=this.dataHelper.months[new Date().getMonth()].month;
   }

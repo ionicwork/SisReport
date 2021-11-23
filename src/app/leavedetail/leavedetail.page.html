@@ -9,26 +9,26 @@
         <ion-row style="justify-content: center;">
           <div class="devProfile">
             <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
-            <h1 style="text-align:center ;">{{dataHelper.allAdminEmployees[dataHelper.reportDetail.userUid].FullName}}</h1>
-            <p style="text-align:center ;">{{dataHelper.allAdminEmployees[dataHelper.reportDetail.userUid].Skills}}</p>
+            <h1 style="text-align:center ;">{{dataHelper.allAdminEmployees[dataHelper.leavesDetail.userUid].FullName}}</h1>
+            <p style="text-align:center ;">{{dataHelper.allAdminEmployees[dataHelper.leavesDetail.userUid].Skills}}</p>
           </div>
         </ion-row>
-      <h1>{{ dataHelper.reportDetail.title}}</h1>
+      <h1>{{ dataHelper.leavesDetail.title }}</h1>
       <div class="devDescription">
         <h3></h3>
 
-        <p>{{ dataHelper.reportDetail.description}}</p>
+        <p>{{ dataHelper.leavesDetail.description }}</p>
       </div>
       <div class="devFeedback">
         <h3>Feedback</h3>
-        <p>
-          <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-          industry's standard dummy text ever since the 1500s, -->
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s,
+         <!-- {{ data.feedback }} -->
           </p>
       </div>
       <div class="devreporttime">
         <ion-icon name="time-outline"></ion-icon>
-        <p>{{ dataHelper.reportDetail.timeStamp |  date : 'dd-MM-yyyy hh:mm a'}}</p>
+        <p>{{ dataHelper.leavesDetail.timeStamp |  date : 'dd-MM-yyyy hh:mm a'}}</p>
       </div>
     </div>
   </div>
