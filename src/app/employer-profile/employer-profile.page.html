@@ -9,8 +9,9 @@
     <p (click)="update()" style="color: blue;">Edit Profile</p>
   </div>
 
-  <div class="devProfileData">
-    <img src="../../assets/LogIn team/admin Leave forms/Ellipse 12.png" alt="">
+  <div class="devProfileData" (click)="choosePhoto()">
+    <!-- <img src="{{../../assets/LogIn team/admin Leave forms/Ellipse 12.png}}" alt="" > -->
+    <img src="{{ photo }}" alt="" >
     <h1>{{dataHelper.user.FullName}}</h1>
     <p>{{dataHelper.user.Skills}}</p>
   </div>

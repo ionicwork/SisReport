@@ -4,6 +4,7 @@ import { FormGroup, Validators , FormControl , FormBuilder } from '@angular/form
 import firebase from 'firebase';
 import { DatahelperService } from '../provider/datahelper.service';
 
+
 @Component({
   selector: 'app-reportdetail',
   templateUrl: './reportdetail.page.html',
@@ -11,11 +12,12 @@ import { DatahelperService } from '../provider/datahelper.service';
 })
 export class ReportdetailPage implements OnInit {
   constructor(public navCtrl:NavController , public dataHelper:DatahelperService , public _fb:FormBuilder,) { }
-  public feedback:FormGroup;
+  public fb:FormGroup;
+  feedBack:any;
   async ngOnInit() {
     
      
-    this.feedback = this._fb.group({
+    this.fb = this._fb.group({
       feedback: ['', Validators.compose([ 
         Validators.required,
       ])],
@@ -27,6 +29,8 @@ export class ReportdetailPage implements OnInit {
     postFeedback.userUid=this.dataHelper.user.uid;
     firebase.database().ref('feedback').push(postFeedback);
   }
+
+  
   devBack(){
     this.navCtrl.pop();
 

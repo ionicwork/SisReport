@@ -18,7 +18,7 @@ export class DatahelperService {
   allReports: any[];
   leaves: any;
   allLeaves:any[];
-  feedBack:any;
+  feedBack:any = [];
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,
     public utils: UtilsService
@@ -82,7 +82,7 @@ export class DatahelperService {
   getAdminEmployees(uid) {
     firebase.database().ref('users').orderByChild("adminUid").equalTo(uid).once('value', (snapshot) => {
       this.allAdminEmployees = snapshot.val();
-      debugger;
+      // debugger;
       this.reports = [];
       this.leaves = [];
       this.getAdminReports();
@@ -165,11 +165,6 @@ export class DatahelperService {
     })
   }
 
-  // getFeedBack() {
-  //   firebase.database().ref('feedback').orderByChild('userUid').equalTo(this.user.uid).on('child_added', (snapshot) => {
-  //     this.feedBack = snapshot.val();
-  //     console.log(this.feedBack);
-  // });
-// }
+  
 
 }
