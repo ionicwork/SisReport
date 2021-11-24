@@ -24,7 +24,7 @@
 </div>
 <div class="devdailycontent">
   <h1>Daily reports charts</h1>
-  <p *ngIf='this.dataHelper.dataFetched == true;'>90</p>
+  <p *ngIf='this.dataHelper.dataFetched == true;'>{{dataHelper.reports?.length}}</p>
   <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
 </div>
 </div>
@@ -44,7 +44,8 @@
      <h1>Daily Report</h1>
     </div>
     <div class="devCounter">
-      <!-- <p></p> -->
+      <p *ngIf='this.dataHelper.dataFetched == true;'>{{dataHelper.reports?.length}}</p>
+      <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
     </div>
   </div>
 

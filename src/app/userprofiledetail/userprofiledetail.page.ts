@@ -11,18 +11,18 @@ import { UtilsService } from '../provider/utils.service';
 })
 export class UserprofiledetailPage implements OnInit {
 
-  constructor(public navCtrl:NavController, public dataHelper:DatahelperService , public alertController:AlertController , public utils:UtilsService) { }
-
+  constructor(public navCtrl: NavController, public dataHelper: DatahelperService, public alertController: AlertController, public utils: UtilsService) { }
+  ind:number
   ngOnInit() {
   }
-  devBack(){
+  devBack() {
     this.navCtrl.pop();
   }
 
   showAlert(report) {
     this.alertController.create({
       header: 'Are you sure to detele this report?',
-     
+
       buttons: [
         {
           text: 'No',
@@ -42,20 +42,21 @@ export class UserprofiledetailPage implements OnInit {
     });
   }
 
-  deletereport(report){
-    console.log(report);
-    // firebase.database().ref('reports').remove(report);
-    // this.navCtrl.pop();
-    firebase.database().ref('reports').orderByChild('timeStamp').equalTo(report.timeStamp).once('value' , (snapShot)=>{
-      var data=snapShot.val();
-      for(var key in data){
-        data.key
-        firebase.database().ref(`reports/${key}`).remove();
+  deletereport(report) {
+    firebase.database().ref(`reports/${report.key}`).remove().then(()=>{
+      for (let index = 0; index < this.dataHelper.reportsData.length; index++) {
+        var ind = this.dataHelper.reportsData[index].array.findIndex(x => x.timeStamp == report.timeStamp)
+        // debugger
+        if (ind >= 0) {
+          this.dataHelper.reportsData[index].array.splice(ind,1)
+          debugger
+          break;
+        }
       }
-    } )
+    })
     this.navCtrl.pop();
     this.utils.presentToast('Report deleted successfully');
   }
 
-  
+
 }

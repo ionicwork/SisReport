@@ -18,6 +18,7 @@ export class ProfilePage implements OnInit {
   }
   logout(){
     localStorage.clear();
+    this.dataHelper.reports=[];
     this.navCtrl.navigateRoot('login')
   }
 }

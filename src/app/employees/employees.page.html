@@ -28,10 +28,10 @@
          </ion-row>
   </div>
   <div class="devCards" *ngIf="month==='February'">
-    <ion-row  *ngIf="!dataFetched" class="spinner">
+    <ion-row  *ngIf="!dataHelper.dataFetched" class="spinner">
       <ion-spinner></ion-spinner>
     </ion-row>
-  <div *ngFor="let user of allEmployees" class="devProfileCard"  (click)="updateData()">
+  <div *ngFor="let user of dataHelper.allEmployees" class="devProfileCard"  (click)="updateData()">
     <div class="devProfileImg">
       <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
     </div>

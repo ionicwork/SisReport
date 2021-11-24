@@ -12,20 +12,22 @@ export class UserdailyreportPage implements OnInit {
   month: string ;
   searchTerm:string;
   allReports: any;
+  reports: any;
   constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
   
   ngOnInit() {
-    console.log(this.dataHelper.months);
-
+   
+  }
+  ionViewWillEnter(){
     this.month=this.dataHelper.months[new Date().getMonth()].month;
+    this.reports=JSON.parse(JSON.stringify(this.dataHelper.reportsData))
   }
   filter(){
     for (let index = 0; index < this.dataHelper.months.length; index++) {
       // debugger
-      this.dataHelper.reportsData[index].array=this.dataHelper.months[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
-      // debugger;
+        this.reports[index].array=this.dataHelper.reportsData[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
     }
-   
+    // debugger;
   }
 
   devBack() {

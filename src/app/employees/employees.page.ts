@@ -16,15 +16,6 @@ export class EmployeesPage implements OnInit {
   month: string = "February";
   categories = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   ngOnInit() {
-    this.allEmployees = [];
-    this.dataFetched = false; 
-    firebase.database().ref('users').orderByChild('adminUid').equalTo(this.dataHelper.user.uid).once('value', (snapshot) => {
-      var data = snapshot.val();
-      for (var key in data) {
-        this.allEmployees.push(data[key]);
-      }
-      this.dataFetched=true;
-    })
   }
   onCategoryChange(category) {
     console.log(category.detail.value);

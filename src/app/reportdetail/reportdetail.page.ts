@@ -27,7 +27,9 @@ export class ReportdetailPage implements OnInit {
   }
   Feedback(postFeedback){
     postFeedback.userUid=this.dataHelper.user.uid;
-    firebase.database().ref('feedback').push(postFeedback);
+    postFeedback.timestamp=Number(new Date());
+    this.dataHelper.reportDetail.feedback=postFeedback;
+    firebase.database().ref(`reports/${this.dataHelper.reportDetail.key}`).set(this.dataHelper.reportDetail)
   }
 
   

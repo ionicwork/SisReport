@@ -35,7 +35,7 @@
            <h1>Daily Report</h1>
           </div>
           <div class="devCounter">
-            <p *ngIf='this.dataHelper.dataFetched == true;'>{{this.dataHelper.reports.length}}</p>
+            <p *ngIf='this.dataHelper.dataFetched == true;'>{{this.dataHelper?.allReports?.length}}</p>
             <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
           </div>
         </div>
@@ -47,7 +47,7 @@
            <h1>Leave Form</h1>
           </div>
           <div class="devCounter">
-              <p *ngIf='this.dataHelper.dataFetched == true;'>{{this.dataHelper.leaves.length}}</p>
+              <p *ngIf='this.dataHelper.dataFetched == true;'>{{this.dataHelper?.leaves?.length}}</p>
               <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
           </div>
         </div>
@@ -72,7 +72,7 @@
           </div>
           <div class="devCounter">
             <!-- <p>35</p> -->
-            <p *ngIf='this.dataHelper.dataFetched == true;'>{{ this.dataHelper.allAdminEmployees.length }}</p>
+            <p *ngIf='this.dataHelper.dataFetched == true;'>{{ this.dataHelper?.allEmployees?.length }}</p>
               <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
           </div>
         </div>

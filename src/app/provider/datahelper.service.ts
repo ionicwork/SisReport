@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NavController, LoadingController } from '@ionic/angular';
 import firebase from 'firebase';
+import { iReport } from '../Model/report';
 import { UtilsService } from './utils.service';
 
 @Injectable({
@@ -9,16 +10,17 @@ import { UtilsService } from './utils.service';
 export class DatahelperService {
   public user: any = [];
   public employee: any = [];
-  allAdminEmployees: any;
-  reports: any;
+  allAdminEmployees: any=[];
+  reports: any=[];
   reportsData: any;
   reportDetail: any;
   leavesDetail:any;
   leavesData: any;
-  allReports: any[];
+  allReports: any=[];
   leaves: any;
   allLeaves:any[];
   feedBack:any = [];
+  allEmployees: any=[];
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,
     public utils: UtilsService
@@ -71,7 +73,7 @@ export class DatahelperService {
       for (var key in data) {
         var month = new Date(data[key].timeStamp).getMonth();
         this.months[month].array.push(data[key]);
-        this.reports.push(data[key]);
+        this.allReports.push(data[key]);
       }
       this.dataFetched = true;
       for (let index = 0; index < this.months.length; index++) {
@@ -80,10 +82,13 @@ export class DatahelperService {
     })
   }
   getAdminEmployees(uid) {
+    this.allEmployees=[];
     firebase.database().ref('users').orderByChild("adminUid").equalTo(uid).once('value', (snapshot) => {
       this.allAdminEmployees = snapshot.val();
+      for(var key in this.allAdminEmployees){
+        this.allEmployees.push(this.allAdminEmployees[key])
+      }
       // debugger;
-      this.reports = [];
       this.leaves = [];
       this.getAdminReports();
       this.getAdminLeaves();
@@ -134,22 +139,29 @@ export class DatahelperService {
     this.getEmployeeLeaves();
   }
   getEmployeeReports() {
-    this.months = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
+    this.reports = [];
+    this.reportsData = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
     { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
     { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
     this.dataFetched = false;
-    firebase.database().ref('reports').orderByChild("userUid").equalTo(this.user.uid).on('child_added', (snapshot) => {
+    firebase.database().ref('reports').orderByChild("userUid").equalTo(this.user.uid).once('value', (snapshot) => {
       var data = snapshot.val();
-      var month = new Date(data.timeStamp).getMonth();
-      this.months[month].array.push(snapshot.val());
-      this.months[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
-      this.reportsData = this.months;
+      for(var key in data){
+        var month = new Date(data[key].timeStamp).getMonth();
+        this.reports.push(data[key]);
+        this.reportsData[month].array.push(data[key]);
+      }
+      for (let month = 0; month < 12; month++) {
+        this.reportsData[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
+      }
+      console.log(this.reports.length);
       // debugger;
       this.dataFetched = true;
     })
   }
 
   getEmployeeLeaves() {
+
     this.getLeaves = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
     { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
     { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
