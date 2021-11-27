@@ -25,7 +25,7 @@ export class EmployeesPage implements OnInit {
   }
 
   AddEmployee() {
-    this.navCtrl.navigateBack('add-employee');
+    this.navCtrl.navigateForward('add-employee');
   }
   updateData() {
     this.navCtrl.navigateForward('update-employee')

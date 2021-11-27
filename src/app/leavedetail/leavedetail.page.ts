@@ -28,8 +28,10 @@ export class LeavedetailPage implements OnInit {
     
   }
   Feedback(postFeedback){
-    
-    firebase.database().ref('feedback').push(postFeedback);
+    postFeedback.userUid=this.dataHelper.user.uid;
+    postFeedback.timestamp=Number(new Date());
+    this.dataHelper.leavesDetail.feedback=postFeedback;
+    firebase.database().ref(`leaves/${this.dataHelper.leavesDetail.key}`).set(this.dataHelper.leavesDetail)
   }
   devBack(){
     this.navCtrl.pop();

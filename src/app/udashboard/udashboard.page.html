@@ -19,6 +19,7 @@
 </ion-header>
 
 <ion-content >
+  
  <div class="devdailyreport">
 <div class="devdailycircle">
 </div>
@@ -29,7 +30,9 @@
 </div>
 </div>
 <div class="devmain">
-  <div class="devchart"><img style="    width: 100%;" src="../../assets/LogIn team/main user screen/miancart.png" alt=""></div>
+  <div class="devchart">
+    <img style="    width: 100%;" src="../../assets/LogIn team/main user screen/miancart.png" alt="">
+  </div>
 
 <div class="devreview">
   <p>You are so lazy please keep it up</p>
@@ -57,7 +60,8 @@
      <h1>Leave Form</h1>
     </div>
     <div class="devleaveformCounter">
-      <p>40</p>
+      <p *ngIf='this.dataHelper.dataFetched == true;'>{{dataHelper.leavesData?.length}}</p>
+      <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
     </div>
   </div>
   

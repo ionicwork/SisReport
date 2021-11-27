@@ -80,7 +80,7 @@ export class AddEmployeePage implements OnInit {
   }
 
   devBack(){
-    this.navCtrl.navigateBack('employees')
+    this.navCtrl.pop();
   }
 
 }

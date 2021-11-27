@@ -21,6 +21,7 @@ export class DatahelperService {
   allLeaves:any[];
   feedBack:any = [];
   allEmployees: any=[];
+  
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,
     public utils: UtilsService
@@ -30,7 +31,7 @@ export class DatahelperService {
 
 
   dataFetched = false;
-  months: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
+  adminReports: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
   { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
   { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
   getLeaves: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
@@ -61,7 +62,7 @@ export class DatahelperService {
   }
   getAdminReports() {
     this.allReports=[];
-    this.months = [{ month: 'January', array: [] = [] }, { month: 'February', array: [] = [] }, { month: 'March', array: [] = [] }, { month: 'April', array: [] = [] },
+    this.adminReports = [{ month: 'January', array: [] = [] }, { month: 'February', array: [] = [] }, { month: 'March', array: [] = [] }, { month: 'April', array: [] = [] },
     { month: 'May', array: [] = [] }, { month: 'June', array: [] = [] }, { month: 'July', array: [] = [] }, { month: 'August', array: [] = [] }, { month: 'September', array: [] = [] },
     { month: 'October', array: [] = [] }, { month: 'November', array: [] = [] }, { month: 'December', array: [] = [] }]
     this.dataFetched = false;
@@ -72,12 +73,12 @@ export class DatahelperService {
       // debugger;
       for (var key in data) {
         var month = new Date(data[key].timeStamp).getMonth();
-        this.months[month].array.push(data[key]);
+        this.adminReports[month].array.push(data[key]);
         this.allReports.push(data[key]);
       }
       this.dataFetched = true;
-      for (let index = 0; index < this.months.length; index++) {
-        this.months[index].array.sort((a, b) => b.timeStamp - a.timeStamp);
+      for (let index = 0; index < this.adminReports.length; index++) {
+        this.adminReports[index].array.sort((a, b) => b.timeStamp - a.timeStamp);
       }
     })
   }
@@ -97,7 +98,7 @@ export class DatahelperService {
 
 
   getAdminLeaves() {
-    this.allLeaves=[];
+    this.leaves=[];
     this.getLeaves = [{ month: 'January', array: [] = [] }, { month: 'February', array: [] = [] }, { month: 'March', array: [] = [] }, { month: 'April', array: [] = [] },
     { month: 'May', array: [] = [] }, { month: 'June', array: [] = [] }, { month: 'July', array: [] = [] }, { month: 'August', array: [] = [] }, { month: 'September', array: [] = [] },
     { month: 'October', array: [] = [] }, { month: 'November', array: [] = [] }, { month: 'December', array: [] = [] }]
@@ -154,7 +155,7 @@ export class DatahelperService {
       for (let month = 0; month < 12; month++) {
         this.reportsData[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
       }
-      console.log(this.reports.length);
+      
       // debugger;
       this.dataFetched = true;
     })

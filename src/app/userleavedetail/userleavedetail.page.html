@@ -14,9 +14,10 @@
 
     <p> {{ dataHelper.leavesDetail.description}}</p>
   </div>
-  <div class="devFeedback">
+  <div class="devFeedback" *ngIf="this.dataHelper.leavesDetail.feedback">
     <h3>Feedback</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+    <p> {{this.dataHelper.leavesDetail.feedback?.feedback}} </p>
+    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p> -->
   </div>
     <div class="devreporttime">
       <ion-icon name="time-outline"></ion-icon>

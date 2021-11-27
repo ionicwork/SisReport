@@ -19,27 +19,34 @@
 
         <p>{{ dataHelper.reportDetail.description}}</p>
       </div>
-      <div class="devFeedback">
+      <!-- <div class="devFeedBack">
         <h3 *ngIf="this.dataHelper.reportDetail.feedback">Feedback</h3>
         <p *ngIf="this.dataHelper.reportDetail.feedback" >
          {{this.dataHelper.reportDetail.feedback.feedback}}
           </p>
-      </div>
+      </div> -->
       <div class="devreporttime">
         <ion-icon name="time-outline"></ion-icon>
         <p>{{ dataHelper.reportDetail.timeStamp |  date : 'dd-MM-yyyy hh:mm a'}}</p>
       </div>
     </div>
   </div>
+  <div class="devFeedBack">
+    <h3 *ngIf="this.dataHelper.reportDetail.feedback">Feedback</h3>
+    <p *ngIf="this.dataHelper.reportDetail.feedback" >
+     {{this.dataHelper.reportDetail.feedback.feedback}}
+     <span>{{ dataHelper.reportDetail.feedback.timeStamp | date : 'dd-MM-yyyy hh:mm a'}}</span>
+      </p>
+     
+  </div>
 </ion-content>
 
 
-<ion-footer *ngIf="!this.dataHelper.reportDetail.feedback">
+<ion-footer *ngIf="!this.dataHelper.reportDetail.feedback" class="ion-no-border">
   <form [formGroup]="fb" (ngSubmit)="Feedback(fb.value)" >
-  <ion-row style="display: flex;
-  align-items: center;"> 
+  <ion-row > 
     <ion-input type="text" placeholder="Feedback" formControlName="feedback" ></ion-input>
-    <ion-button type="submit"> <ion-icon name="send"  ></ion-icon></ion-button>
+    <ion-button type="submit" [disabled]="!fb.valid"> <ion-icon name="send"  ></ion-icon></ion-button>
     </ion-row>
 
   </form>

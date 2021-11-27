@@ -17,13 +17,13 @@ export class DailyreportPage implements OnInit {
     // var uid =this.dataHelper.months[10].array[0].userUid
     // var name=this.dataHelper.allAdminEmployees[this.dataHelper.months[10].array[0].userUid].FullName
     // debugger
-    this.month=this.dataHelper.months[new Date().getMonth()].month;
-    this.allReports=JSON.parse(JSON.stringify(this.dataHelper.months));
+    this.month=this.dataHelper.adminReports[new Date().getMonth()].month;
+    this.allReports=JSON.parse(JSON.stringify(this.dataHelper.adminReports));
   }
   filter(){
-    for (let index = 0; index < this.dataHelper.months.length; index++) {
+    for (let index = 0; index < this.dataHelper.adminReports.length; index++) {
       // debugger
-      this.allReports[index].array=this.dataHelper.months[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      this.allReports[index].array=this.dataHelper.adminReports[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
       // debugger;
     }
    

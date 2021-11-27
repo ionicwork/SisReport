@@ -14,18 +14,20 @@
 
     <p> {{ dataHelper.reportDetail.description}}</p>
   </div>
-  <div class="devFeedback">
-    <h3>Feedback</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-  </div>
+ 
     <div class="devreporttime">
       <ion-icon name="time-outline"></ion-icon>
       <p>{{ dataHelper.reportDetail.timeStamp |  date : 'dd-MM-yyyy hh:mm a'}}</p>
     </div>
   </div>
 </div>
+<div class="devFeedback" *ngIf = "this.dataHelper.reportDetail.feedback ">
+  <h3>Feedback</h3>
+<p>{{this.dataHelper.reportDetail.feedback?.feedback}}</p>
+  <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p> -->
+</div>
 </ion-content>
-    <ion-footer>
+    <ion-footer class="ion-no-border">
 
     <ion-button expand="block" (click)="showAlert(dataHelper.reportDetail)" color="dark" style="margin: 15px;"> delete report </ion-button>
 

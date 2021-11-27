@@ -29,6 +29,7 @@ firebase.initializeApp(firebaseConfig);
   providers: [
     WebView,
     Camera,
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
