@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "607924293351",
+    "firebase_url": "https://sisreport-9ce9f-default-rtdb.firebaseio.com",
+    "project_id": "sisreport-9ce9f",
+    "storage_bucket": "sisreport-9ce9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607924293351:android:ce9b7e33b580a1ade31c42",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607924293351-up0hfftfqv477303t93npi1vrtna15a4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh-jfmFvnihvJnRhttFL5ZQL-AJDhg60k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607924293351-up0hfftfqv477303t93npi1vrtna15a4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
