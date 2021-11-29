@@ -32,6 +32,7 @@ export class ReportdetailPage implements OnInit {
     firebase.database().ref(`reports/${this.dataHelper.reportDetail.key}`).set(this.dataHelper.reportDetail)
   }
 
+
   
   devBack(){
     this.navCtrl.pop();

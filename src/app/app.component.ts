@@ -30,12 +30,5 @@ export class AppComponent {
      });
     }
    });
-   
-
-
-   
-   this.pushNotification.register();
-
-
  }
 }
