@@ -13,40 +13,13 @@
 <div class="devMain">
  
   <div   class="repotdetail">
-    <div (click)="gotoChat()" class="devProfileCard">
+    <div *ngFor="let user of dataHelper.chats" (click)="gotoChat(dataHelper.allAdminEmployees[user.employeeKey])" class="devProfileCard">
       <div class="devProfileImg">
         <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
       </div>
       <div class="devProfileName">
-        <h1>Umair Aslam </h1>
-        <p>i am comming today</p>
-      </div>
-    </div>
-    <div class="devProfileCard">
-      <div class="devProfileImg">
-        <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
-      </div>
-      <div class="devProfileName">
-        <h1>Umair Aslam </h1>
-        <p>i am comming today</p>
-      </div>
-    </div>
-    <div class="devProfileCard">
-      <div class="devProfileImg">
-        <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
-      </div>
-      <div class="devProfileName">
-        <h1>Umair Aslam </h1>
-        <p>i am comming today</p>
-      </div>
-    </div>
-    <div class="devProfileCard">
-      <div class="devProfileImg">
-        <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
-      </div>
-      <div class="devProfileName">
-        <h1>Umair Aslam </h1>
-        <p>i am comming today</p>
+        <h1>{{dataHelper.allAdminEmployees[user.employeeKey].FullName}}</h1>
+        <p>{{user.lastMessage}}</p>
       </div>
     </div>
   </div>

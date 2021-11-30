@@ -1,27 +1,32 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
-    
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
 
-      <div class="devAvatarimg"slot="start">
-       <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
-      </div>
-      <ion-label (click)="gotochat()" class="font"  >
-       <b><p style="font-size: 23px; margin-left: 10px;">Umair Aslam</p> </b>
-        
-    
-      </ion-label>
-     
-        <ion-icon (click)="notifications($event)" class="popover" slot="end"  style="zoom:1.5" name="ellipsis-vertical-outline"></ion-icon>
-    
-    
+
+    <div class="devAvatarimg" slot="start">
+      <img [src]="recipient.profileUrl || './assets/LogIn team/admin report detail/Ellipse 15.png'" alt="">
+    </div>
+    <ion-label (click)="gotochat()" class="font">
+      <b>
+        <p style="font-size: 23px; margin-left: 10px;">{{recipient?.FullName}}</p>
+      </b>
+
+
+    </ion-label>
+
+    <ion-icon (click)="notifications($event)" class="popover" slot="end" style="zoom:1.5"
+      name="ellipsis-vertical-outline"></ion-icon>
+
+
 
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <div class="devMain">
-  <!-- <div class="devChat">
+    <!-- <div class="devChat">
     <div class="message me"><p>Hello</p></div>
     <div class="message you"><p>Hello</p></div>
     <div class="message me"><p>How are you?</p></div>
@@ -31,27 +36,19 @@
     <div class="message me">I'm doing so amazingly you wouldn't believe all the things that are happening right now it would take up at least 50% of the width of the page to discuss all the things that I want to tell you.</div>
   </div>
 </div> -->
-<div class="imessage">
-  <p class="from-them">It was loud. We just laid there and said &ldquo;is this an earthquake? I think this is an earthquake.&rdquo;</p>
-  <p class="from-me">Like is this an earthquake just go back to sleep</p>
-  <p class="from-them margin-b_one">It&rsquo;s more like &ldquo;this is an earthquake. Check the Internet. Yup. Earthquake. This is the size. This is the epicenter. Check social media. Make sure the East Coast knows I&rsquo;m alive. Okay, try and go back to sleep.&rdquo;</p>
-  <p class="from-me no-tail emoji">👍🏻</p>
-  <p class="from-me">Glad you&rsquo;re safe</p>
-  <p class="from-them">It was loud. We just laid there and said &ldquo;is this an earthquake? I think this is an earthquake.&rdquo;</p>
-  <p class="from-me">Like is this an earthquake just go back to sleep</p>
-  <p class="from-them margin-b_one">It&rsquo;s more like &ldquo;this is an earthquake. Check the Internet. Yup. Earthquake. This is the size. This is the epicenter. Check social media. Make sure the East Coast knows I&rsquo;m alive. Okay, try and go back to sleep.&rdquo;</p>
-  <p class="from-me no-tail emoji">👍🏻</p>
-  <p class="from-me">Glad you&rsquo;re safe</p>
-</div>
-</div>
+    <div class="imessage">
+      <p *ngFor="let chat of chats" [style.from-them]="chat.uid==user.uid" [class.from-me]="chat.uid!=user.uid">
+        {{chat.message}}</p>
+    </div>
+  </div>
 </ion-content>
 
 <ion-footer class="ion-no-border" style="display: flex;">
-  <div class="footer" >
+  <div class="footer">
     <ion-icon style="font-size: 30px; padding-left: 10px;" name="document-outline"></ion-icon>
-    <ion-input placeholder="Message"></ion-input>
-    <ion-icon style="font-size: 30px; padding-right: 10px;" name="navigate-outline"></ion-icon>
- 
+    <ion-input placeholder="Message" [(ngModel)]="newMessage.message"></ion-input>
+    <ion-icon style="font-size: 30px; padding-right: 10px;" name="navigate-outline" (click)="sendMessage()"></ion-icon>
+
   </div>
-  
+
 </ion-footer>

@@ -25,6 +25,8 @@ export class DatahelperService {
   totalPercentage:any;
   reportChart:any;
   leaveChart:any;
+  chats: any;
+  chatEmployee: any={};
   
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,
@@ -97,6 +99,16 @@ export class DatahelperService {
       this.leaves = [];
       this.getAdminReports();
       this.getAdminLeaves();
+      this.getAdminChats();
+    })
+  }
+  getAdminChats(){
+    this.chats=[];
+    firebase.database().ref(`chats/`).orderByChild('adminKey').equalTo(this.user.uid).once('value',(snapshot)=>{
+      var data=snapshot.val();
+      for(var key in data){
+        this.chats.push(data[key]);
+      }
     })
   }
 

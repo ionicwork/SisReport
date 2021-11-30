@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { DatahelperService } from '../provider/datahelper.service';
 
 @Component({
   selector: 'app-chatcontact',
@@ -8,11 +9,12 @@ import { NavController } from '@ionic/angular';
 })
 export class ChatcontactPage implements OnInit {
 
-  constructor(public navCtrl:NavController) { }
+  constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
 
   ngOnInit() {
   }
-  gotoChat(){
- this.navCtrl.navigateForward('chat');
+  gotoChat(employee) {
+    this.dataHelper.chatEmployee=employee;
+    this.navCtrl.navigateForward('chat');
   }
 }
