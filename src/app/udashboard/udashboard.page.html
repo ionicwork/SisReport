@@ -24,7 +24,7 @@
 <div class="devdailycircle">
 </div>
 <div class="devdailycontent">
-  <h1>Daily reports charts</h1>
+  <h1 (click)="gotochatcontact()" >Daily reports charts</h1>
   <p *ngIf='this.dataHelper.dataFetched == true;'>{{dataHelper.reports?.length}}</p>
   <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
 </div>

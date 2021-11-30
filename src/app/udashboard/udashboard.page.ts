@@ -114,4 +114,7 @@ export class UdashboardPage implements AfterViewInit, OnInit {
     this.navCtrl.navigateForward('userprofiledetail');
   }
 
+  gotochatcontact(){
+    this.navCtrl.navigateForward('chatcontact');
+  }
 }
