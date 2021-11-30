@@ -22,9 +22,9 @@ export class DashboardPage implements OnInit {
     var uid = localStorage.getItem('uid')
     // debugger;
     this.dataHelper.getAdminFirebaseData(uid);
+    
   }
   ionViewDidEnter(){
-
     this.doughnutChartMethod();
   }
   // @ViewChild('barChart') bar;
@@ -63,25 +63,31 @@ export class DashboardPage implements OnInit {
     this.navCtrl.navigateForward('employer-profile')
   }
 
+  clickCHart(){
+    this.dataHelper.percentageChart();
+
+  }
+
   bars: any;
   colorArray: any;
+  
   @ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
   doughnutChartMethod() {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
       type: 'doughnut',
       data: {
-        labels: ['Umair', 'SHehryar', 'Fraz'],
+        labels: ['Reports', 'Leaves', 'Feedback'],
         datasets: [{
           label: '# of Votes',
-          data: [60, 25, 15],
+          data: [33.3, 33.3, 33.3],
           backgroundColor: [
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
+            'rgba(248, 41, 41, 0.9)',
+            'rgba(136, 157, 209, 0.9)',
+            'rgba(45, 239, 45, 0.9)',
           ],
           hoverBackgroundColor: [
             '#FFCE56',
-            '#FF6384',
+            '#889dd1',
             '#36A2EB',
           ]
         }]

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { NavController } from '@ionic/angular';
 import { DatahelperService } from '../provider/datahelper.service';
 import Chart from 'chart.js/auto';
+import { StatusBar } from '@capacitor/status-bar';
 // import { Color, Label } from 'ng2-charts';
 
 
@@ -12,8 +13,10 @@ import Chart from 'chart.js/auto';
 })
 export class UdashboardPage implements AfterViewInit, OnInit {
   @ViewChild('chartCanvas') chartCanvas : ElementRef;
+  
   data : any = [];
   canvasChart : Chart;
+  colorCodes:any[]= [{name:"Red" , code:"#E74C3C" },{name:"yellow", code:"#F4D03F" },{name:"Green" , code:"#58D68D" },{name:"Light gray" , code:"#F4F6F7 " }]
   constructor(public navCtrl:NavController, public dataHelper:DatahelperService) { }
 
 
@@ -89,9 +92,13 @@ export class UdashboardPage implements AfterViewInit, OnInit {
  
 
   ngOnInit() {
+    StatusBar.setOverlaysWebView({overlay:false})
     this.dataHelper.getEmployeeFirebaseData();
   }
-
+  changeBackgroundColorOfStatusBar(event){
+    var colorCode=event.target.value;
+    StatusBar.setBackgroundColor({color:colorCode});
+  }
   gotoprofile(){
     this.navCtrl.navigateForward('profile');
   }

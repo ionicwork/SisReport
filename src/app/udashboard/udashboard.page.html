@@ -103,7 +103,11 @@
  
 </div>
 </div>
+<ion-item>
 
-
+<ion-select  (ionChange) = "changeBackgroundColorOfStatusBar($event)">
+  <ion-select-option *ngFor="let color of colorCodes" [value]="color.code">{{color.name}}</ion-select-option>
+</ion-select>
+</ion-item>
 
 </ion-content>

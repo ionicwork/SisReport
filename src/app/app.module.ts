@@ -13,6 +13,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyAU_miVxgwl-0EpptkuuZSqkM2r8Yv2bdM",
   authDomain: "sisreport-9ce9f.firebaseapp.com",
@@ -30,6 +31,7 @@ firebase.initializeApp(firebaseConfig);
   providers: [
     WebView,
     Camera,
+   
     
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

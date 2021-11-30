@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NavController, LoadingController } from '@ionic/angular';
 import firebase from 'firebase';
+// import { totalmem } from 'os';
 import { iReport } from '../Model/report';
 import { UtilsService } from './utils.service';
 
@@ -21,6 +22,9 @@ export class DatahelperService {
   allLeaves:any[];
   feedBack:any = [];
   allEmployees: any=[];
+  totalPercentage:any;
+  reportChart:any;
+  leaveChart:any;
   
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,
@@ -176,6 +180,18 @@ export class DatahelperService {
       // debugger;
       this.dataFetched = true;
     })
+  }
+
+
+  percentageChart(){
+    this.totalPercentage =( this.allReports?.length   + this.leaves?.length)
+    console.log(this.totalPercentage)
+
+     this.reportChart = Math.round(((  this.allReports?.length )/(this.totalPercentage)) * 100);
+     console.log(this.reportChart)
+
+     this.leaveChart =  Math.round(((  this.leaves?.length )/(this.totalPercentage)) * 100);
+     console.log(this.leaveChart)
   }
 
   

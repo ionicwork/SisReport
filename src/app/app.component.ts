@@ -4,6 +4,7 @@ import { DatahelperService } from './provider/datahelper.service';
 import { PushnotificationService } from './provider/pushnotification.service';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,6 +14,7 @@ export class AppComponent {
   constructor(public platform:Platform ,public dataHelper:DatahelperService  , public pushNotification:PushnotificationService
     ,public navCtrl:NavController) {
    this.platform.ready().then(() => {
+    
     var data=JSON.parse(localStorage.getItem('user'))
     // debugger;
     if(data?.uid){
@@ -30,5 +32,14 @@ export class AppComponent {
      });
     }
    });
+   
  }
+ 
+
+//  initializeApp(){
+//    this.platform.ready().then(()=>{
+     
+    
+//    })
+//  }
 }
