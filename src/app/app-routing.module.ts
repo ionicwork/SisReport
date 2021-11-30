@@ -100,6 +100,22 @@ const routes: Routes = [
     path: 'leavedetail',
     loadChildren: () => import('./leavedetail/leavedetail.module').then( m => m.LeavedetailPageModule)
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'chatcontact',
+    loadChildren: () => import('./chatcontact/chatcontact.module').then( m => m.ChatcontactPageModule)
+  },
+  {
+    path: 'adminchatcontact',
+    loadChildren: () => import('./adminchatcontact/adminchatcontact.module').then( m => m.AdminchatcontactPageModule)
+  },
+  {
+    path: 'adminchat',
+    loadChildren: () => import('./adminchat/adminchat.module').then( m => m.AdminchatPageModule)
+  },
 
 ];
 
