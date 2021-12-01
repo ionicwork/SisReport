@@ -60,7 +60,8 @@ export class UpdateProfilePage implements OnInit {
       toast.present();
     }
     update(user){
-      firebase.database().ref('users/'+this.getService.user.uid).update(user).then(()=>{
+      debugger
+      firebase.database().ref('admins/'+this.getService.user.uid).update(user).then(()=>{
         user.uid=this.getService.user.uid;
         localStorage.setItem('user' ,JSON.stringify(user));
         this.presentToast();

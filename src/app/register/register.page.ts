@@ -103,10 +103,6 @@ export class RegisterPage implements OnInit {
   }
   
 
-
-
-
-
   devBack(){
     this.navCtrl.navigateBack('admin-login');
   }
