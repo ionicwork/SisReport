@@ -7,8 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import firebase from 'firebase';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+// import { WebView } from '@ionic-native/ionic-webview/ngx';
+// import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
 
@@ -29,8 +29,8 @@ firebase.initializeApp(firebaseConfig);
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , ],
   providers: [
-    WebView,
-    Camera,
+    // WebView,
+    // Camera,
    
     
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

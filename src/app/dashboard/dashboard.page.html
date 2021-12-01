@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <div class="devHeader">
-      <div class="devTitle" routerLink="/chatcontact">
+      <div class="devTitle" >
           <h1>DashBoard</h1>
       </div>
       <div class="devProfile" (click)="employerProfile()">
@@ -76,5 +76,11 @@
               <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
           </div>
         </div>
+       
     </div>
+    <ion-fab routerLink="/chatcontact" vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button class="fab2">
+        <ion-icon  name="chatbox"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>

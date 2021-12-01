@@ -14,7 +14,9 @@ export class DatahelperService {
   allAdminEmployees: any=[];
   reports: any=[];
   reportsData: any;
+  recipient: any;
   reportDetail: any;
+  chatname: any;
   leavesDetail:any;
   leavesData: any;
   allReports: any=[];
@@ -109,6 +111,7 @@ export class DatahelperService {
       for(var key in data){
         this.chats.push(data[key]);
       }
+      // debugger
     })
   }
 

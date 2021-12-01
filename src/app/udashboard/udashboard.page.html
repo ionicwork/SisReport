@@ -24,7 +24,7 @@
 <div class="devdailycircle">
 </div>
 <div class="devdailycontent">
-  <h1 (click)="gotochatcontact()" >Daily reports charts</h1>
+  <h1  >Daily reports charts</h1>
   <p *ngIf='this.dataHelper.dataFetched == true;'>{{dataHelper.reports?.length}}</p>
   <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
 </div>
@@ -109,5 +109,9 @@
   <ion-select-option *ngFor="let color of colorCodes" [value]="color.code">{{color.name}}</ion-select-option>
 </ion-select>
 </ion-item>
-
+<ion-fab routerLink="/adminchatcontact" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button class="fab2">
+    <ion-icon  name="chatbox"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>

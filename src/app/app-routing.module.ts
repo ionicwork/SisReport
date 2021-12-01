@@ -116,6 +116,14 @@ const routes: Routes = [
     path: 'adminchat',
     loadChildren: () => import('./adminchat/adminchat.module').then( m => m.AdminchatPageModule)
   },
+  {
+    path: 'all',
+    loadChildren: () => import('./all/all.module').then( m => m.AllPageModule)
+  },
+  {
+    path: 'userallcontacts',
+    loadChildren: () => import('./userallcontacts/userallcontacts.module').then( m => m.UserallcontactsPageModule)
+  },
 
 ];
 

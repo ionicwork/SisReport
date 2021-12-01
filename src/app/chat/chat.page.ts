@@ -4,6 +4,7 @@ import { DatahelperService } from '../provider/datahelper.service';
 import { IonContent } from '@ionic/angular';
 import firebase from 'firebase';
 import { NewMessage } from '../Model/message';
+import { UtilsService } from '../provider/utils.service';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
@@ -19,7 +20,7 @@ export class ChatPage implements OnInit {
   @ViewChild(IonContent, { read: IonContent, static: false }) content: IonContent;
 
   constructor(public dataHelper: DatahelperService,
-    public zone: NgZone,) { }
+    public zone: NgZone,public utils:UtilsService) { }
 
   ngOnInit() {
     this.getChatUser();
@@ -56,7 +57,7 @@ export class ChatPage implements OnInit {
   }
   sendMessage() {
     if (!this.newMessage.message.trim()) {
-      // debugger;
+     this.utils.presentToast("Sorry! you can't send empty message");
       return;
     }
     this.newMessage.timestamp = firebase.database.ServerValue.TIMESTAMP as any;

@@ -26,16 +26,6 @@
 
 <ion-content>
   <div class="devMain">
-    <!-- <div class="devChat">
-    <div class="message me"><p>Hello</p></div>
-    <div class="message you"><p>Hello</p></div>
-    <div class="message me"><p>How are you?</p></div>
-    <div class="message you"><p>I'm fine</p></div>
-    <div class="message you">How about you?</div>
-    <div class="message you">I'm doing so amazingly you wouldn't believe all the things that are happening right now it would take up at least 50% of the width of the page to discuss all the things that I want to tell you.</div>
-    <div class="message me">I'm doing so amazingly you wouldn't believe all the things that are happening right now it would take up at least 50% of the width of the page to discuss all the things that I want to tell you.</div>
-  </div>
-</div> -->
     <div class="imessage">
       <p *ngFor="let chat of chats" [style.from-them]="chat.uid==user.uid" [class.from-me]="chat.uid!=user.uid">
         {{chat.message}}</p>

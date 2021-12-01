@@ -19,28 +19,33 @@
 
         <p>{{ dataHelper.leavesDetail.description }}</p>
       </div>
-      <div class="devFeedback">
-        <h3 *ngIf="this.dataHelper.leavesDetail.feedback">Feedback</h3>
-        <p *ngIf="this.dataHelper.leavesDetail.feedback">
-          {{this.dataHelper.leavesDetail.feedback?.feedback}}
-          </p>
-      </div>
+    
       <div class="devreporttime">
         <ion-icon name="time-outline"></ion-icon>
         <p>{{ dataHelper.leavesDetail.timeStamp |  date : 'dd-MM-yyyy hh:mm a'}}</p>
       </div>
     </div>
   </div>
+
+  
+  <div class="devFeedBack">
+    <h3 *ngIf="this.dataHelper.leavesDetail.feedback">Feedback</h3>
+    <p *ngIf="this.dataHelper.leavesDetail.feedback" >
+     {{this.dataHelper.leavesDetail.feedback.feedback}}
+     <span>{{ dataHelper.leavesDetail.feedback.timeStamp | date : 'dd-MM-yyyy hh:mm a'}}</span>
+      </p>
+     
+  </div>
 </ion-content>
 
 
-<ion-footer *ngIf="!this.dataHelper.leavesDetail.feedback">
+<ion-footer *ngIf="!this.dataHelper.leavesDetail.feedback" class="ion-no-border">
   <form [formGroup]="feedback" (ngSubmit)="Feedback(feedback.value)" >
-  <ion-row style="display: flex;
-  align-items: center;"> 
+  <ion-row> 
     <ion-input type="text" placeholder="Feedback" formControlName="feedback" ></ion-input>
-    <ion-button type="submit"> <ion-icon name="send"  ></ion-icon></ion-button>
+    <ion-button type="submit" [disabled]="!feedback.valid"> <ion-icon name="send"  ></ion-icon></ion-button>
     </ion-row>
 
   </form>
 </ion-footer>
+
