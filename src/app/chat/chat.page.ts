@@ -28,7 +28,7 @@ export class ChatPage implements OnInit {
   getChatUser() {
     this.user = this.dataHelper.user;
     this.recipient = this.dataHelper.chatEmployee;
-
+    // debugger
     if (this.user.uid < this.recipient.uid) {
       this.chatKey = this.user.uid + '-' + this.recipient.uid;
     } else {

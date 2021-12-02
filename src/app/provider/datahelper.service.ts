@@ -147,6 +147,10 @@ export class DatahelperService {
       this.user = snapshot.val();
       if (this.user && this.user?.uid) {
         localStorage.setItem('employee', JSON.stringify(snapshot.val()));
+        firebase.database().ref(`admins/${this.user.adminUid}`).once('value',(snapshot)=>{
+          var admin=snapshot.val();
+          localStorage.setItem('admin',JSON.stringify(admin));
+        })
         this.navCtrl.navigateRoot('udashboard');
       } else {
         this.utils.presentToast("Use Admin Login Page to Login");

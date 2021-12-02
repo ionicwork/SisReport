@@ -134,9 +134,9 @@
       <ion-select-option *ngFor="let color of colorCodes" [value]="color.code">{{color.name}}</ion-select-option>
     </ion-select>
   </ion-item> -->
-  <ion-fab routerLink="/adminchat" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="fab2">
-      <ion-icon name="chatbox"></ion-icon>
+      <ion-icon name="chatbox" (click)="openChat()"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

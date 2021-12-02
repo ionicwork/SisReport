@@ -1,16 +1,16 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button mode="md"></ion-back-button>
     </ion-buttons>
 
 
     <div class="devAvatarimg" slot="start">
-      <img [src]="recipient.profileUrl || './assets/LogIn team/admin report detail/Ellipse 15.png'" alt="">
+      <img [src]="recipient?.profileUrl || './assets/LogIn team/admin report detail/Ellipse 15.png'" alt="">
     </div>
     <ion-label (click)="gotochat()" class="font">
       <b>
-        <p style="font-size: 18px; margin-left: 10px; white-space: nowrap;
+        <p style="font-size: 18px; margin-left: 5px; white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;">
           {{recipient?.FullName}}({{recipient?.Skills}})
@@ -31,7 +31,7 @@
 <ion-content>
   <div class="devMain">
     <div class="imessage">
-      <p *ngFor="let chat of chats" [style.from-them]="chat.uid==user.uid" [class.from-me]="chat.uid!=user.uid">
+      <p *ngFor="let chat of chats" [style.from-them]="chat.senderId!=user.uid" [class.from-me]="chat.senderId==user.uid">
         {{chat.message}}</p>
     </div>
   </div>

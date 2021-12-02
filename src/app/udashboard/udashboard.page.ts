@@ -125,4 +125,8 @@ export class UdashboardPage implements AfterViewInit, OnInit {
     this.dataHelper.reportDetail=report;
     this.navCtrl.navigateForward('userprofiledetail');
   }
+  openChat(){
+    this.dataHelper.chatEmployee=JSON.parse(localStorage.getItem('admin'));
+    this.navCtrl.navigateForward(['/chat']);
+  }
 }
