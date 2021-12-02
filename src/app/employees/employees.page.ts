@@ -12,10 +12,22 @@ import { DatahelperService } from '../provider/datahelper.service';
 export class EmployeesPage implements OnInit {
   public allEmployees: any = [];
   dataFetched = false;
+  searchTerm:string;
   constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
   month: string = "February";
   categories = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   ngOnInit() {
+  }
+
+  filter(){
+    for (let index = 0; index < this.dataHelper.allEmployees.length; index++) {
+      
+      console.log(this.dataHelper.allEmployees[index].array)
+      debugger
+      this.allEmployees[index].array=this.dataHelper.allEmployees[index].array.filter(x=>x.FullName.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      // debugger;
+    }
+   
   }
   onCategoryChange(category) {
     console.log(category.detail.value);
@@ -27,7 +39,8 @@ export class EmployeesPage implements OnInit {
   AddEmployee() {
     this.navCtrl.navigateForward('add-employee');
   }
-  updateData() {
+  updateData(user) {
+    this.dataHelper.employeeUpdate = user;
     this.navCtrl.navigateForward('update-employee')
   }
 }

@@ -4,6 +4,7 @@ ion-header{
         --background: #d2d3f2;
        display: flex;
         padding: 0 18px;
+        
         ion-title{
             font-size: 27px;
             font-weight: 600;
@@ -12,7 +13,10 @@ ion-header{
             font-size: 26px;
         }
     }
+    
 }
+
+
 
 ion-content{
     --background: #d2d3f2;

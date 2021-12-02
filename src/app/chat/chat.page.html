@@ -10,7 +10,11 @@
     </div>
     <ion-label (click)="gotochat()" class="font">
       <b>
-        <p style="font-size: 23px; margin-left: 10px;">{{recipient?.FullName}}</p>
+        <p style="font-size: 18px; margin-left: 10px; white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;">
+          {{recipient?.FullName}}({{recipient?.Skills}})
+
       </b>
 
 

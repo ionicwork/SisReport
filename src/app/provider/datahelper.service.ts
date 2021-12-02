@@ -29,6 +29,7 @@ export class DatahelperService {
   leaveChart:any;
   chats: any;
   chatEmployee: any={};
+  employeeUpdate:any=[];
   
   constructor(public navCtrl: NavController,
     public loadingController: LoadingController,

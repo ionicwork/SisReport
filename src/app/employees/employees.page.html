@@ -10,7 +10,7 @@
   </div>
   <div class="devSearch">
     <div class="devSearchBar">
-      <ion-searchbar placeholder="Enter Name" mode="md"></ion-searchbar>
+      <ion-searchbar placeholder="Enter Name" mode="md" [(ngModel)]="searchTerm" (ionChange)="filter()"></ion-searchbar>
     </div>
     <div class="devBtn">
       <!-- <ion-button color="dark">+Add Employee</ion-button> -->
@@ -31,7 +31,7 @@
     <ion-row  *ngIf="!dataHelper.dataFetched" class="spinner">
       <ion-spinner></ion-spinner>
     </ion-row>
-  <div *ngFor="let user of dataHelper.allEmployees" class="devProfileCard"  (click)="updateData()">
+  <div *ngFor="let user of dataHelper.allEmployees" class="devProfileCard"  (click)="updateData(user)">
     <div class="devProfileImg">
       <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
     </div>

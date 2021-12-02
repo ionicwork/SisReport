@@ -12,56 +12,56 @@
           <div class="devAvatarImg">
             <img src="../../assets/LogIn team/admin add employee/Profile Image.png" alt="">
           </div>
-          <form >
+          <form [formGroup]="updateform" (ngSubmit)="updateEmployee(updateform.value)">
             <ion-grid>
               <ion-row  justify-content-center>
                 <ion-col align-self-center>
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required">FullName</ion-label>
                     <ion-input type="text"  style="margin-left: 10px;" 
-                      placeholder="Name"></ion-input>
+                      placeholder="Name" formControlName="FullName" [(ngModel)]= "this.dataHelper.employeeUpdate.FullName"></ion-input>
                   </ion-item>
                   
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required">Skills</ion-label>
                     <ion-input type="text"style="margin-left: 10px;" 
-                      placeholder="Skills"></ion-input>
+                      placeholder="Skills" formControlName="Skills" [(ngModel)]= "this.dataHelper.employeeUpdate.Skills" ></ion-input>
                   </ion-item>
                  
     
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required">Phone</ion-label>
                     <ion-input type="text"  style="margin-left: 10px;" 
-                      placeholder="Phone"></ion-input>
+                      placeholder="Phone" formControlName="Phone" [(ngModel)]= "this.dataHelper.employeeUpdate.Phone" ></ion-input>
                   </ion-item>
 
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required">Email</ion-label>
-                    <ion-input type="text"  style="margin-left: 10px;" 
-                      placeholder="email"></ion-input>
+                    <ion-input type="email"  style="margin-left: 10px;" 
+                      placeholder="email" formControlName="Email" [(ngModel)]= "this.dataHelper.employeeUpdate.Email" disabled="true"></ion-input>
                   </ion-item>
 
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required">Joining Date</ion-label>
                     <ion-input type="text"  style="margin-left: 10px;" 
-                      placeholder="Joining Date"></ion-input>
+                      placeholder="Joining Date" formControlName="Date" [(ngModel)]= "this.dataHelper.employeeUpdate.Date" disabled="true"></ion-input>
                   </ion-item>
 
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required">Salary</ion-label>
                     <ion-input type="text"  style="margin-left: 10px;" 
-                      placeholder="Salary"></ion-input>
+                      placeholder="Salary" formControlName="Salary" [(ngModel)]= "this.dataHelper.employeeUpdate.Salary" disabled="true"></ion-input>
                   </ion-item>
 
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required">Password</ion-label>
                     <ion-input type="Password"  style="margin-left: 10px;" 
-                      placeholder="Password"></ion-input>
+                      placeholder="Password" formControlName="Password" [(ngModel)]= "this.dataHelper.employeeUpdate.Password"></ion-input>
                   </ion-item>
                    <p style="margin-bottom: 0; text-align: center;">Daily reposrts status:<span style="color: red;">Lazy</span> </p>
                   <div class="devbuttons">
                     
-                      <button  class="devBtn" type="submit" style="background-color: #0000;" (click)="update()">update</button>
+                      <button  class="devBtn" type="submit" style="background-color: #0000;" >update</button>
                   </div>
                 </ion-col>
               </ion-row>

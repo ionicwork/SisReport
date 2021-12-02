@@ -57,7 +57,7 @@ export class ChatPage implements OnInit {
   }
   sendMessage() {
     if (!this.newMessage.message.trim()) {
-     this.utils.presentToast("Sorry! you can't send empty message");
+     this.utils.presentToast("Sorry! you can't send empty message" );
       return;
     }
     this.newMessage.timestamp = firebase.database.ServerValue.TIMESTAMP as any;

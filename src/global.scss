@@ -25,14 +25,15 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
+.devSearchBar{
 ion-searchbar{
     .searchbar-input-container{
         .searchbar-input{
             border: 2px solid black !important;
     border-radius: 10px !important;
     background: transparent !important;
-    // padding-left: 10px !important;
+    padding-left: 10px ;
+    padding-inline-end: 10px !important;
         }
         .searchbar-clear-button{
             right: 50px !important;
@@ -43,10 +44,22 @@ ion-searchbar{
         left: auto !important;
       }
 }
+}
 
 .errorMsg{
     color: #fa5805;
     margin: 5px 0;
 }
 
+.devContactSearch{
+    ion-searchbar{
+        .searchbar-input-container{
+            .searchbar-input{
+                border: 2px solid black !important;
+                border-radius: 10px !important;
+                background: transparent !important;
+        }
+    }
+    }
+    }
 

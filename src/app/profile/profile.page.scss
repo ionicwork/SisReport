@@ -29,26 +29,36 @@ padding-top: 40px;
 }
 
 .devProfileDetail{
-   display: flex;
-   padding: 15px;
+    padding: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+    
    h3{
-       font-weight: bold;
-       font-size: 14px;
+    font-weight: bold;
+    font-size: 18px;
    }
    p{
-       font-size: 12px;
+       font-size: 14px;
    }
     .devEmail{
-     width: 45%;
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
     }
+    
 
     .devJoinigDate{
-width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
     }
     
     .devPhone{
-width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
     }
 

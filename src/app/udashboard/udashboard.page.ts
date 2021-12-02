@@ -13,7 +13,11 @@ import { StatusBar } from '@capacitor/status-bar';
 })
 export class UdashboardPage implements AfterViewInit, OnInit {
   @ViewChild('chartCanvas') chartCanvas : ElementRef;
-  
+
+  month: string ;
+  searchTerm:string;
+  allReports: any;
+  reports: any;
   data : any = [];
   canvasChart : Chart;
   colorCodes:any[]= [{name:"Red" , code:"#E74C3C" },{name:"yellow", code:"#F4D03F" },{name:"Green" , code:"#58D68D" },{name:"Light gray" , code:"#F4F6F7 " }]
@@ -95,6 +99,9 @@ export class UdashboardPage implements AfterViewInit, OnInit {
     StatusBar.setOverlaysWebView({overlay:false})
     this.dataHelper.getEmployeeFirebaseData();
   }
+  ionViewWillEnter(){
+    this.month=this.dataHelper.adminReports[new Date().getMonth()].month;
+  }
   changeBackgroundColorOfStatusBar(event){
     var colorCode=event.target.value;
     StatusBar.setBackgroundColor({color:colorCode});
@@ -110,11 +117,12 @@ export class UdashboardPage implements AfterViewInit, OnInit {
   gotoleaveform(){
     this.navCtrl.navigateForward('userleave');
   }
-  gotoreportdetail(){
-    this.navCtrl.navigateForward('userprofiledetail');
-  }
 
   gotochatcontact(){
     this.navCtrl.navigateForward('chatcontact');
+  }
+  gotoreportdetail(report) {
+    this.dataHelper.reportDetail=report;
+    this.navCtrl.navigateForward('userprofiledetail');
   }
 }
