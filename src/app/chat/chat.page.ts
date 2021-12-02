@@ -66,17 +66,26 @@ export class ChatPage implements OnInit {
     updates[`/chats/${this.chatKey}/messages/${key}`] = this.newMessage;
     firebase.database().ref().update(updates).then(() => {
       var data = { lastMessage: '', uid: '', lastMessageTime: 0,adminKey:'',employeeKey:'' };
-      data.lastMessage = this.newMessage.message;
+      data.lastMessage = JSON.parse(JSON.stringify(this.newMessage.message));
+      this.newMessage.message = null;
       data.uid = this.user.uid;
       data.lastMessageTime = this.newMessage.timestamp;
-      data.adminKey=this.user.uid;
-      data.employeeKey=this.recipient.uid;
-      if(this.chats.length!=0){
-        delete data.employeeKey
-        delete data.adminKey
+      
+      // debugger
+      if(this.chats.length==1){
+        if(this.user.adminUid){
+          data.adminKey=this.recipient.uid;
+          data.employeeKey=this.user.uid;
+        }else{
+          data.adminKey=this.user.uid;
+          data.employeeKey=this.recipient.uid;
+        }
+      }else{
+        delete data.adminKey;
+        delete data.employeeKey;
       }
       firebase.database().ref('chats/' + this.chatKey).update(data);
-      this.newMessage.message = null;
+     
     });
   }
   ionViewDidLeave(){

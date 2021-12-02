@@ -31,8 +31,10 @@
 <ion-content>
   <div class="devMain">
     <div class="imessage">
-      <p *ngFor="let chat of chats" [style.from-them]="chat.senderId!=user.uid" [class.from-me]="chat.senderId==user.uid">
-        {{chat.message}}</p>
+      <p *ngFor="let chat of chats" [class.from-them]="chat.senderId!=user.uid" [class.from-me]="chat.senderId==user.uid">
+        {{chat.message}} <span style="font-size: 10px;">{{chat.timestamp | date : 'hh:mm a'}}</span> </p>
+        
+        
     </div>
   </div>
 </ion-content>

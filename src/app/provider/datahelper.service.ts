@@ -112,6 +112,7 @@ export class DatahelperService {
       for(var key in data){
         this.chats.push(data[key]);
       }
+      this.chats.sort((a, b) => b.lastMessageTime - a.lastMessageTime);
       // debugger
     })
   }
