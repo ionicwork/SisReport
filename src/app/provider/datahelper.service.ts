@@ -87,6 +87,7 @@ export class DatahelperService {
       }
       this.dataFetched = true;
       for (let index = 0; index < this.adminReports.length; index++) {
+        // debugger
         this.adminReports[index].array.sort((a, b) => b.timeStamp - a.timeStamp);
       }
     })
@@ -95,8 +96,10 @@ export class DatahelperService {
     this.allEmployees=[];
     firebase.database().ref('users').orderByChild("adminUid").equalTo(uid).once('value', (snapshot) => {
       this.allAdminEmployees = snapshot.val();
+      // debugger
       for(var key in this.allAdminEmployees){
         this.allEmployees.push(this.allAdminEmployees[key])
+        // debugger
       }
       // debugger;
       this.leaves = [];
@@ -107,12 +110,14 @@ export class DatahelperService {
   }
   getAdminChats(){
     this.chats=[];
+    // debugger
     firebase.database().ref(`chats/`).orderByChild('adminKey').equalTo(this.user.uid).once('value',(snapshot)=>{
       var data=snapshot.val();
       for(var key in data){
         this.chats.push(data[key]);
       }
       this.chats.sort((a, b) => b.lastMessageTime - a.lastMessageTime);
+      
       // debugger
     })
   }
@@ -175,6 +180,7 @@ export class DatahelperService {
       for(var key in data){
         var month = new Date(data[key].timeStamp).getMonth();
         this.reports.push(data[key]);
+        // debugger
         this.reportsData[month].array.push(data[key]);
       }
       for (let month = 0; month < 12; month++) {

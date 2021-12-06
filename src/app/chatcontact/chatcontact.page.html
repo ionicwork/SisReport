@@ -7,7 +7,7 @@
     </ion-title>
     <!-- <ion-icon slot="end"   name="search-outline"></ion-icon> -->
     <div class="devContactSearch">
-      <ion-searchbar *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false">
+      <ion-searchbar mode="md" [(ngModel)]="searchTerm" (ionChange)="filter()" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false">
       </ion-searchbar>
 
     </div>
@@ -33,11 +33,14 @@
           <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
         </div>
         <div class="devProfileName" >
-          <h1>{{dataHelper.allAdminEmployees[user.employeeKey].FullName}}</h1>
-          <p>{{user.lastMessage}}</p>
+          <h1>{{dataHelper.allAdminEmployees[user.employeeKey].FullName}}({{dataHelper.allAdminEmployees[user.employeeKey].Skills}})</h1>
+          <p>{{user.lastMessage}}<span style="     margin-left: 7px; font-size: 10px;">{{user.lastMessageTime | date : 'hh:mm a'}}</span></p>
         </div>
+       
       </div>
     </div>
+
+    
 
 
 

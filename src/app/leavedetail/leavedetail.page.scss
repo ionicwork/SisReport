@@ -2,7 +2,7 @@ ion-content{
     --background:#f0f4fe;
 
 .devBAckButton {
-    margin-top: 40px;
+    margin-top: 20px;
      img {
         object-fit: cover;
         width: 100%;
@@ -13,6 +13,13 @@ ion-content{
 
 .devReportDetailMain{
     padding: 15px;
+    .contactuser{
+        h3{
+            text-align: end;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+    }
   .devreportContent{
 
     border-radius: 25px;

@@ -27,6 +27,10 @@ export class LeavedetailPage implements OnInit {
     })
     
   }
+  gotoChat(employee) {
+    this.dataHelper.chatEmployee=employee;
+    this.navCtrl.navigateForward('chat');
+  }
   Feedback(postFeedback){
     postFeedback.userUid=this.dataHelper.user.uid;
     postFeedback.timestamp=Number(new Date());

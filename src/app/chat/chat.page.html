@@ -8,7 +8,7 @@
     <div class="devAvatarimg" slot="start">
       <img [src]="recipient?.profileUrl || './assets/LogIn team/admin report detail/Ellipse 15.png'" alt="">
     </div>
-    <ion-label (click)="gotochat()" class="font">
+    <p (click)="gotochat()" class="font">
       <b>
         <p style="font-size: 18px; margin-left: 5px; white-space: nowrap;
         overflow: hidden;
@@ -16,12 +16,7 @@
           {{recipient?.FullName}}({{recipient?.Skills}})
 
       </b>
-
-
-    </ion-label>
-
-    <ion-icon (click)="notifications($event)" class="popover" slot="end" style="zoom:1.5"
-      name="ellipsis-vertical-outline"></ion-icon>
+    </p>
 
 
 
@@ -33,8 +28,7 @@
     <div class="imessage">
       <p *ngFor="let chat of chats" [class.from-them]="chat.senderId!=user.uid" [class.from-me]="chat.senderId==user.uid">
         {{chat.message}} <span style="font-size: 10px;">{{chat.timestamp | date : 'hh:mm a'}}</span> </p>
-        
-        
+          
     </div>
   </div>
 </ion-content>
