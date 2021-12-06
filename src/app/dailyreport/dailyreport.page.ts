@@ -23,8 +23,8 @@ export class DailyreportPage implements OnInit {
   filter(){
     for (let index = 0; index < this.dataHelper.adminReports.length; index++) {
       // debugger
-      this.allReports[index].array=this.dataHelper.adminReports[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
-      debugger;
+      this.allReports[index].array=this.dataHelper.adminReports[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase())||this.dataHelper.allAdminEmployees[x.userUid]?.FullName.toLowerCase().includes(this.searchTerm.toLowerCase()) );
+      // debugger;
     }
    
   }
