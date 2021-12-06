@@ -193,7 +193,7 @@ export class DatahelperService {
   }
 
   getEmployeeLeaves() {
-
+    this.leavesData=[]
     this.getLeaves = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
     { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
     { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
@@ -203,7 +203,7 @@ export class DatahelperService {
       var month = new Date(data.timeStamp).getMonth();
       this.getLeaves[month].array.push(snapshot.val());
       this.getLeaves[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
-      this.leavesData = this.getLeaves;
+      this.leavesData.push(this.getLeaves);
       // debugger;
       this.dataFetched = true;
     })
