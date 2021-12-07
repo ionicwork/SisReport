@@ -35,7 +35,7 @@
 </div>
 
 <div  [ngSwitch]="month">
-  <div  *ngFor="let m of dataHelper.leavesData  " [class.hide]="month!=m.month"  class="january">
+  <div  *ngFor="let m of dataHelper.getLeaves  " [class.hide]="month!=m.month"  class="january">
     <div *ngSwitchCase="m.month"  >
       <ion-row  *ngIf="!dataHelper.dataFetched" class="spinner">
         <ion-spinner></ion-spinner>

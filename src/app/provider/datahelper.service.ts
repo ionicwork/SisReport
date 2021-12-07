@@ -20,7 +20,7 @@ export class DatahelperService {
   leavesDetail:any;
   leavesData: any;
   allReports: any=[];
-  leaves: any;
+  leaves: any=[];
   allLeaves:any[];
   feedBack:any = [];
   allEmployees: any=[];
@@ -139,6 +139,7 @@ export class DatahelperService {
         var month = new Date(data[key].timeStamp).getMonth();
         this.getLeaves[month].array.push(data[key]);
         this.leaves.push(data[key]);
+        // debugger;
       }
       this.dataFetched = true;
       for (let index = 0; index < this.getLeaves.length; index++) {
@@ -211,13 +212,14 @@ export class DatahelperService {
       for(var key in data){
         var month = new Date(data[key].timeStamp).getMonth();
         this.leavesData.push(data[key]);
-        // debugger
         this.getLeaves[month].array.push(data[key]);
       }
       for (let month = 0; month < 12; month++) {
         this.getLeaves[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
       }
       
+      // debugger;
+      console.log(this.leavesData.length);
       // debugger;
       this.dataFetched = true;
     })

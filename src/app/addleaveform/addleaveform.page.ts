@@ -36,8 +36,16 @@ export class AddleaveformPage implements OnInit {
     leaveData.userUid=this.dataHelper.user.uid;
     leaveData.adminUid=this.dataHelper.user.adminUid;
     console.log(leaveData);
-    firebase.database().ref('leaves').push(leaveData);
-    this.utils.presentToast("leave Successfully Added!");
+    // debugger;
+    leaveData.key=firebase.database().ref('leaves').push().key;
+    firebase.database().ref(`leaves/${leaveData.key}`).set(leaveData);
+    var month = new Date().getMonth();
+    this.dataHelper.getLeaves[month].array.push(leaveData);
+    debugger;
+    this.dataHelper.leavesData.push(leaveData);
+    this.dataHelper.getLeaves[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
+    this.utils.presentToast("Report Successfully Added!");
+    console.log(this.dataHelper.leavesData.length,"added")
     this.utils.dismiss();
       this.navCtrl.pop();
  }
