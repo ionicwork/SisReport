@@ -18,10 +18,14 @@ export class UserleavePage implements OnInit {
   constructor(public navCtrl:NavController,public dataHelper:DatahelperService) { }
 
   ngOnInit() {
-    // console.log(this.months);
-
-    this.month=this.dataHelper.getLeaves[new Date().getMonth()].month;
+      // console.log(this.months);
   }
+
+  ionViewWillEnter(){
+    this.month=this.dataHelper.getLeaves[new Date().getMonth()].month;
+    this.dataHelper.leavesData=JSON.parse(JSON.stringify(this.dataHelper.getLeaves))
+  }
+
   filter(){
     for (let index = 0; index < this.dataHelper.getLeaves.length; index++) {
       // debugger

@@ -22,9 +22,9 @@
       <div class="devPieChart">
         <canvas #doughnutCanvas  style="position: relative; height:20vh; width:40vw"></canvas>
       </div>
-      <div class="devProgressChart">
+      <!-- <div class="devProgressChart">
         <img src="../../assets/LogIn team/admin main screen/Group 96.png" alt="">
-      </div>
+      </div> -->
     </div>
     <div class="devChartReport" >
         <div class="devReport" (click)="dailyreport()">
@@ -51,7 +51,7 @@
               <p  *ngIf='this.dataHelper.dataFetched == false;'><ion-skeleton-text animated ></ion-skeleton-text></p>
           </div>
         </div>
-        <div class="devReport" (click)="feedback()">
+        <!-- <div class="devReport" (click)="feedback()">
           <div class="devIcon" style="background: rgba(240, 254, 240 );">
             <ion-icon name="receipt-outline" style="color: #23ee23;"></ion-icon>
           </div>
@@ -62,7 +62,7 @@
             <p>40</p>
 
           </div>
-        </div>
+        </div> -->
         <div class="devReport" (click)="employee()">
           <div class="devIcon" style="background: rgba(255, 252, 240 );">
             <ion-icon name="people" style="color: #ffda16;"></ion-icon>

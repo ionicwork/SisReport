@@ -26,8 +26,9 @@ export class UserdailyreportPage implements OnInit {
     for (let index = 0; index < this.dataHelper.adminReports.length; index++) {
       // debugger
         this.reports[index].array=this.dataHelper.reportsData[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase()));
+        
     }
-    // debugger;
+    debugger;
   }
 
   devBack() {

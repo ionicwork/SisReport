@@ -54,6 +54,7 @@ export class AddEmployeePage implements OnInit {
 
   SignUp(userData){
     this.utils.presentLoading("Creating User");
+    userData.timeStamp=Number(new Date());
     firebase.auth().createUserWithEmailAndPassword(userData.Email , userData.Password).then((user)=>{
       if(firebase.auth().currentUser){
         userData.uid = firebase.auth().currentUser.uid;
@@ -70,8 +71,12 @@ export class AddEmployeePage implements OnInit {
   }
 
   saveUserDataAfterSignUp(userData){
+
     firebase.database().ref( `users/${userData.uid}`).set(userData).then(()=>{
+      this.dataHelper.allEmployees.push(userData);
       this.utils.presentToast("User Successfully Added");
+      this.dataHelper.allEmployees.sort((a, b) => b.timeStamp - a.timeStamp);
+ 
       this.utils.dismiss();
       this.navCtrl.pop();
     }).catch((err)=>{

@@ -48,6 +48,13 @@
               <h1>{{dataHelper.allAdminEmployees[report.userUid]?.FullName}}</h1>
               <p>{{dataHelper.allAdminEmployees[report.userUid]?.Skills}}</p>
             </div>
+            <!-- <div class="devCheck" >
+              <ion-icon *ngIf="this.dataHelper.reportDetail?.feedback" slot="end" style="    font-size: 27px;
+              color: #1b861b;" name="checkmark-circle"></ion-icon>
+               <ion-icon *ngIf="!this.dataHelper.reportDetail?.feedback" slot="end" style="    font-size: 27px;
+               ;" name="checkmark-circle"></ion-icon>
+            </div> -->
+           
           </div>
           <div class="reportcontent">
             <h3>{{report.title}}</h3>

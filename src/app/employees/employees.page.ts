@@ -10,7 +10,7 @@ import { DatahelperService } from '../provider/datahelper.service';
   styleUrls: ['./employees.page.scss'],
 })
 export class EmployeesPage implements OnInit {
-  public allEmployees: any = [];
+  public allEmployeeshj: any=[];
   dataFetched = false;
   searchTerm:string;
   constructor(public navCtrl: NavController, public dataHelper: DatahelperService) { }
@@ -22,9 +22,9 @@ export class EmployeesPage implements OnInit {
   filter(){
     for (let index = 0; index < this.dataHelper.allEmployees.length; index++) {
       
-      console.log(this.dataHelper.allEmployees[index].array)
-      debugger
-      this.allEmployees[index].array=this.dataHelper.allEmployees[index].array.filter(x=>x.FullName.toLowerCase().includes(this.searchTerm.toLowerCase()));
+ 
+      // debugger
+      this.allEmployeeshj[index]=this.dataHelper.allEmployees.filter(x=>this.dataHelper.allEmployees[x.userUid]?.FullName.toLowerCase().includes(this.searchTerm.toLowerCase()) );
       // debugger;
     }
    

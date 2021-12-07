@@ -66,9 +66,11 @@ export class ChatPage implements OnInit {
     updates[`/chats/${this.chatKey}/messages/${key}`] = this.newMessage;
     firebase.database().ref().update(updates).then(() => {
       var data = { lastMessage: '', uid: '', lastMessageTime: 0,adminKey:'',employeeKey:'' };
+      
       data.lastMessage = JSON.parse(JSON.stringify(this.newMessage.message));
       this.newMessage.message = null;
       data.uid = this.user.uid;
+      
       data.lastMessageTime = this.newMessage.timestamp;
       
       // debugger

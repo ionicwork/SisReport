@@ -116,6 +116,7 @@ export class DatahelperService {
       for(var key in data){
         this.chats.push(data[key]);
       }
+     
       this.chats.sort((a, b) => b.lastMessageTime - a.lastMessageTime);
       
       // debugger
@@ -198,15 +199,29 @@ export class DatahelperService {
     { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },
     { month: 'October', array: [] }, { month: 'November', array: [] }, { month: 'December', array: [] }]
     this.dataFetched = false;
-    firebase.database().ref('leaves').orderByChild("userUid").equalTo(this.user.uid).on('child_added', (snapshot) => {
+    firebase.database().ref('leaves').orderByChild("userUid").equalTo(this.user.uid).once('value', (snapshot) => {
+      // var data = snapshot.val();
+      // var month = new Date(data.timeStamp).getMonth();
+      // this.getLeaves[month].array.push(snapshot.val());
+      // this.getLeaves[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
+      // this.leavesData.push(this.getLeaves);
+      // debugger;
+      // this.dataFetched = true;
       var data = snapshot.val();
-      var month = new Date(data.timeStamp).getMonth();
-      this.getLeaves[month].array.push(snapshot.val());
-      this.getLeaves[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
-      this.leavesData.push(this.getLeaves);
+      for(var key in data){
+        var month = new Date(data[key].timeStamp).getMonth();
+        this.leavesData.push(data[key]);
+        // debugger
+        this.getLeaves[month].array.push(data[key]);
+      }
+      for (let month = 0; month < 12; month++) {
+        this.getLeaves[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
+      }
+      
       // debugger;
       this.dataFetched = true;
     })
+    
   }
 
 
