@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import firebase from 'firebase';
 import { DatahelperService } from '../provider/datahelper.service';
 

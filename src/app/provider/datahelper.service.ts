@@ -57,6 +57,15 @@ export class DatahelperService {
         localStorage.setItem('user', JSON.stringify(snapshot.val()));
         localStorage.setItem('uid', snapshot.val().uid);
         this.navCtrl.navigateRoot('dashboard');
+        localStorage.setItem('admin',JSON.stringify(this.user));
+          if (localStorage.getItem('deviceToken')) {
+            const token: string = localStorage.getItem('deviceToken');
+            const tokens: Array<any> = this.user.deviceTokens || [];
+            if (tokens.indexOf(token) < 0) {
+              tokens.push(token);
+              firebase.database().ref(`users/${this.user.uid}/deviceTokens`).set(tokens);
+            }
+          }
       } else {
         this.utils.presentToast("Use Employee Login Page to Login");
         this.navCtrl.navigateForward("/login");
@@ -158,6 +167,14 @@ export class DatahelperService {
         firebase.database().ref(`admins/${this.user.adminUid}`).once('value',(snapshot)=>{
           var admin=snapshot.val();
           localStorage.setItem('admin',JSON.stringify(admin));
+          if (localStorage.getItem('deviceToken')) {
+            const token: string = localStorage.getItem('deviceToken');
+            const tokens: Array<any> = admin.deviceTokens || [];
+            if (tokens.indexOf(token) < 0) {
+              tokens.push(token);
+              firebase.database().ref(`users/${admin.uid}/deviceTokens`).set(tokens);
+            }
+          }
         })
         this.navCtrl.navigateRoot('udashboard');
       } else {

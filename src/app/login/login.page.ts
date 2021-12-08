@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
         // console.log('reponse=' , res.uid);
         this.dataHelper.getEmployeeData(res.user.uid);
         this.utils.dismiss();
+        
       }).catch(err=>{
         err;
         setTimeout(() => {
