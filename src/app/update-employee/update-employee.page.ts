@@ -48,7 +48,8 @@ export class UpdateEmployeePage implements OnInit {
     this.navCtrl.navigateBack('employees')
   }
   updateEmployee(employeeUpdate){
-      firebase.database().ref('users/'+this.dataHelper.employeeUpdate.uid).update(employeeUpdate).then(()=>{
+    debugger
+    firebase.database().ref('users/'+this.dataHelper.employeeUpdate.uid).update(employeeUpdate).then(()=>{
         employeeUpdate.uid=this.dataHelper.employeeUpdate.uid;
         localStorage.setItem('user' ,JSON.stringify(employeeUpdate));
         this.utils.presentToast('update successfully!');

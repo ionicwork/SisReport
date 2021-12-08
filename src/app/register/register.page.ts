@@ -57,14 +57,14 @@ export class RegisterPage implements OnInit {
           this.admins.push(data[key]);
         }
       })
-      this.addNewAdmin();
+      // this.addNewAdmin();
     }
-    addNewAdmin(){
-      var data={email:"test@admin.com"}
-      firebase.database().ref('adminPool').push(data).then(()=>{
-        this.utils.presentToast("Created");
-      })
-    }
+    // addNewAdmin(){
+    //   var data={email:"test@admin.com"}
+    //   firebase.database().ref('adminPool').push(data).then(()=>{
+    //     this.utils.presentToast("Created");
+    //   })
+    // }
  
 
   SignUp(userData){

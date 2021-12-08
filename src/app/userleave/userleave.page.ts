@@ -23,6 +23,7 @@ export class UserleavePage implements OnInit {
 
   ionViewWillEnter(){
     this.month=this.dataHelper.getLeaves[new Date().getMonth()].month;
+    this.leaves=JSON.parse(JSON.stringify(this.dataHelper.getLeaves))
     // this.dataHelper.leavesData=JSON.parse(JSON.stringify(this.dataHelper.getLeaves))
   }
 

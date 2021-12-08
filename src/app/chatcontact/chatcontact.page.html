@@ -27,7 +27,7 @@
   <div class="devMain">
 
     <div class="repotdetail">
-      <div *ngFor="let user of dataHelper.chats" (click)="gotoChat(dataHelper.allAdminEmployees[user.employeeKey])"
+      <!-- <div *ngFor="let user of dataHelper.chats" (click)="gotoChat(dataHelper.allAdminEmployees[user.employeeKey])"
         class="devProfileCard">
         <div class="devProfileImg">
           <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
@@ -37,7 +37,31 @@
           <p>{{user.lastMessage}}<span style="     margin-left: 7px; font-size: 10px;">{{user.lastMessageTime | date : 'hh:mm a'}}</span></p>
         </div>
        
-      </div>
+      </div> -->
+
+
+      <ion-list >
+        
+
+        <ion-item-sliding *ngFor="let user of dataHelper.chats" 
+        class="devProfileCard">
+          <ion-item (click)="gotoChat(dataHelper.allAdminEmployees[user.employeeKey])">
+            <ion-label style="display: flex; align-items: center;"> <div class="devProfileImg">
+              <img src="../../assets/LogIn team/admin report detail/Ellipse 15.png" alt="">
+            </div>
+            <div class="devProfileName" >
+              <h1>{{dataHelper.allAdminEmployees[user.employeeKey].FullName}}({{dataHelper.allAdminEmployees[user.employeeKey].Skills}})</h1>
+              <p>{{user.lastMessage}}<span style="     margin-left: 7px; font-size: 10px;">{{user.lastMessageTime | date : 'hh:mm a'}}</span></p>
+            </div></ion-label>
+          </ion-item>
+
+          <ion-item-options  side="end">
+            <ion-item-option (click)="showAlert(dataHelper.chats)" color="danger">Delete</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+
+        
+      </ion-list>
     </div>
 
     

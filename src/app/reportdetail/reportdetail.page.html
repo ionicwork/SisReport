@@ -4,8 +4,8 @@
     <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
   </div>
 
-  <div class="devReportDetailMain">
-    <div class="contactuser" routerLink="/chatcontact" ><h3 style="    text-align: end;">Contact</h3></div>
+  <div  class="devReportDetailMain">
+    <!-- <div class="contactuser" (click)="gotoChat(dataHelper.allAdminEmployees[user.employeeKey])" ><h3 style="    text-align: end;">Contact</h3></div> -->
     <div class="devreportContent">
 
         <ion-row style="justify-content: center;">
@@ -41,16 +41,27 @@
     <p *ngIf="this.dataHelper.reportDetail.feedback" >
      {{this.dataHelper.reportDetail.feedback.feedback}}
      <span>{{ dataHelper.reportDetail.feedback.timeStamp | date : 'dd-MM-yyyy hh:mm a'}}</span>
-      </p>
-     
+     <ion-icon (click)="editfeedack()" name="create"></ion-icon> </p>
+ 
   </div>
+
 </ion-content>
 
 
-<ion-footer *ngIf="!this.dataHelper.reportDetail.feedback" class="ion-no-border">
-  <form [formGroup]="fb" (ngSubmit)="Feedback(fb.value)" >
-  <ion-row > 
-    <ion-input type="text" placeholder="Feedback" formControlName="feedback" ></ion-input>
+<ion-footer  *ngIf="!this.dataHelper.reportDetail.feedback" class="ion-no-border">
+  <form [formGroup]="fb"  (ngSubmit)="Feedback(fb.value)" >
+  <ion-row >  
+    <ion-input type="text" placeholder="Feedback" formControlName="feedback"  ></ion-input>
+    <ion-button type="submit" [disabled]="!fb.valid"> <ion-icon name="send"  ></ion-icon></ion-button>
+    </ion-row>
+
+  </form>
+</ion-footer>
+
+<ion-footer  *ngIf=" edit " class="ion-no-border">
+  <form [formGroup]="fb"  (ngSubmit)="Feedback(fb.value)" >
+  <ion-row >  
+    <ion-input type="text" placeholder="Feedback" formControlName="feedback" [(ngModel)]= "this.dataHelper.reportDetail.feedback.feedback" ></ion-input>
     <ion-button type="submit" [disabled]="!fb.valid"> <ion-icon name="send"  ></ion-icon></ion-button>
     </ion-row>
 
