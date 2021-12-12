@@ -3,6 +3,10 @@ import { FormGroup, Validators , FormControl , FormBuilder } from '@angular/form
 import { NavController, ToastController } from '@ionic/angular';
 import firebase from 'firebase';
 import { DatahelperService } from '../provider/datahelper.service';
+import { ActionSheetController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
+import { UtilsService } from '../provider/utils.service';
+
 
 
 @Component({
@@ -13,7 +17,10 @@ import { DatahelperService } from '../provider/datahelper.service';
 export class UpdateProfilePage implements OnInit {
   public onUpdateForm:FormGroup;
   loading:any;
-  constructor( 
+  constructor(
+    public utils:UtilsService,
+    private camera: Camera,
+    public actionSheetController:ActionSheetController, 
     public _fb:FormBuilder,
     public toastController: ToastController,
     public navCtrl:NavController ,
@@ -50,6 +57,71 @@ export class UpdateProfilePage implements OnInit {
       
     }
 
+    async updateImage(){
+      const actionSheet = await this.actionSheetController.create({
+        header: 'Choose One',
+        cssClass: 'my-custom-class',
+        buttons: [
+          {
+            text: 'Camera',
+            icon: 'camera-outline',
+            handler: () => {
+              console.log('Play clicked');
+            },
+          },
+          {
+            text: 'Gallery',
+            icon: 'images-outline',
+            handler: () => {
+              this.getImage(1);
+            },
+          },
+          {
+            text: 'Cancel',
+            icon: 'close',
+            role: 'cancel',
+            handler: () => {
+              this.getImage(2);
+            },
+          },
+        ],
+      });
+      await actionSheet.present();
+  
+      const { role } = await actionSheet.onDidDismiss();
+      console.log('onDidDismiss resolved with role', role); 
+    }
+    getImage(src:number){
+      const options: CameraOptions = {
+        quality: 30,
+        destinationType: this.camera.DestinationType.FILE_URI,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        sourceType:src
+      }
+      
+      this.camera.getPicture(options).then((imageData) => {
+       let base64Image = 'data:image/jpeg;base64,' + imageData;
+       this.uploadImage(base64Image);
+      }, (err) => {
+       // Handle error
+      });
+    }
+    uploadImage(imagePath) {
+      const self = this;
+      this.utils.presentLoading('Uploading...');
+      const storageRef = firebase.storage().ref();
+      const filename = Math.floor(Date.now() / 1000);
+      const imageRef = storageRef.child(`profileImages/${filename}.jpg`);
+      imageRef.putString(imagePath, firebase.storage.StringFormat.DATA_URL).then((snapshot) => {
+        firebase.storage().ref('profileImages/' + snapshot.metadata.name).getDownloadURL().then((url) => {
+          this.getService.user.profileImage=url
+          firebase.database().ref('user/'+this.getService.user.uid+'profileImage').update(this.getService.user.profileImage).then(()=>{
+            this.utils.dismiss();
+          })
+       });
+      });
+    }
     async presentToast() {
       const toast = await this.toastController.create({
         message: 'Your Profile have been saved successfully.',
@@ -72,6 +144,7 @@ export class UpdateProfilePage implements OnInit {
       
   
     }  
+    
   devBack(){
     this.navCtrl.navigateBack('employer-profile');
   }

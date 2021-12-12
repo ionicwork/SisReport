@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import firebase from 'firebase';
 // import { WebView } from '@ionic-native/ionic-webview/ngx';
-// import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 
 
+
+import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 
 
@@ -30,7 +32,8 @@ firebase.initializeApp(firebaseConfig);
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , ],
   providers: [
     // WebView,
-    // Camera,
+    Camera,
+    LocalNotifications,
    
     
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

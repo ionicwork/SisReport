@@ -9,8 +9,8 @@
               <img src="" alt="">
           </div> -->
         <div class="devForm" style="position: relative;">
-          <div class="devAvatarImg">
-            <img src="../../assets/LogIn team/admin add employee/Profile Image.png" alt="">
+          <div class="devAvatarImg" (click)="updateImage()">
+            <img [src]="getService.user?.profileImage || '../../assets/LogIn team/admin add employee/Profile Image.png'" alt="">
           </div>
           <form [formGroup]="onUpdateForm" (ngSubmit)="update(onUpdateForm.value)" >
             <ion-grid>
