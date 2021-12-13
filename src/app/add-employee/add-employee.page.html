@@ -83,7 +83,7 @@
 
                   <ion-item lines="none" class="ion-no-padding">
                     <ion-label position="floating" class="required" mode="md">Salary</ion-label>
-                    <ion-input type="text" 
+                    <ion-input type="number" 
                       placeholder="Salary" formControlName="Salary"></ion-input>
                   </ion-item>
                   <p class="errorMsg" *ngIf="onRegisterForm.get('Salary').hasError('required')  && 

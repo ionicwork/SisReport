@@ -27,7 +27,7 @@ export class AddEmployeePage implements OnInit {
       ])],
       Skills: ['', Validators.compose([ 
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(4)
       ])],
       Email: ['', Validators.compose([
         Validators.required,
@@ -74,9 +74,9 @@ export class AddEmployeePage implements OnInit {
 
     firebase.database().ref( `users/${userData.uid}`).set(userData).then(()=>{
       this.dataHelper.allEmployees.push(userData);
-      this.utils.presentToast("User Successfully Added");
+      // debugger
       this.dataHelper.allEmployees.sort((a, b) => b.timeStamp - a.timeStamp);
- 
+      this.utils.presentToast("User Successfully Added");
       this.utils.dismiss();
       this.navCtrl.pop();
     }).catch((err)=>{

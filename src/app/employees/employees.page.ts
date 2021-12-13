@@ -18,6 +18,11 @@ export class EmployeesPage implements OnInit {
   month: string = "February";
   categories = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   ngOnInit() {
+   
+  }
+
+  ionViewWillEnter(){
+    this.allEmployees=JSON.parse(JSON.stringify(this.dataHelper.allEmployees));
   }
 
   filter(){

@@ -109,6 +109,7 @@ export class DatahelperService {
       // debugger
       for(var key in this.allAdminEmployees){
         this.allEmployees.push(this.allAdminEmployees[key])
+        this.allEmployees.sort((a, b) => b.timeStamp - a.timeStamp);
         // debugger
       }
       // debugger;

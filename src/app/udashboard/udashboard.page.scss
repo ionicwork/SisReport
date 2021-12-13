@@ -224,6 +224,18 @@ font-size: 17px;
 }
 
 
+.devImg {
+    background: white;
+    text-align: center;
+   
+img{
+    max-width: 395px;
+        width: 100%;
+    
+  
+}
+}
+
 @media screen and (max-width: 400px) {
     .devheader h3{
        font-size: 22px !important;
@@ -232,3 +244,6 @@ font-size: 17px;
        font-size: 12px !important;
    }
   }
+
+
+

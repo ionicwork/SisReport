@@ -21,7 +21,7 @@ export class LeavePage implements OnInit {
   }
   filter(){
     for (let index = 0; index < this.dataHelper.getLeaves.length; index++) {
-      debugger
+      // debugger
       this.allLeaves[index].array=this.dataHelper.getLeaves[index].array.filter(x=>x.title.toLowerCase().includes(this.searchTerm.toLowerCase())||x.description.toLowerCase().includes(this.searchTerm.toLowerCase())||this.dataHelper.allAdminEmployees[x.userUid]?.FullName.toLowerCase().includes(this.searchTerm.toLowerCase()) );
       // debugger;
     }

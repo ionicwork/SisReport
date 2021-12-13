@@ -41,7 +41,7 @@ export class AddleaveformPage implements OnInit {
     firebase.database().ref(`leaves/${leaveData.key}`).set(leaveData);
     var month = new Date().getMonth();
     this.dataHelper.getLeaves[month].array.push(leaveData);
-    debugger;
+    // debugger;
     this.dataHelper.leavesData.push(leaveData);
     this.dataHelper.getLeaves[month].array.sort((a, b) => b.timeStamp - a.timeStamp);
     this.utils.presentToast("Report Successfully Added!");
