@@ -12,7 +12,7 @@ import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 
 
 
-import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
+// import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 
 
@@ -33,7 +33,7 @@ firebase.initializeApp(firebaseConfig);
   providers: [
     // WebView,
     Camera,
-    LocalNotifications,
+    // LocalNotifications,
    
     
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

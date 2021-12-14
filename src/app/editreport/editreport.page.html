@@ -1,0 +1,51 @@
+
+
+
+
+<ion-content>
+  <div class="devuppercontent">
+  <div class="devBAckButton" style="padding-left:15px ;">
+    <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
+  </div>
+  <div class="devTitle">
+    <h1>Edit Report</h1>
+  </div>
+  <div class="devBanner">
+    <img src="../../assets/LogIn team/add report/reportimg.png" alt="">
+  </div>
+</div>
+<form [formGroup]="updaterepoer" (ngSubmit)="update(updaterepoer.value)"  >
+  <div class="devform" >
+   
+    <ion-label>Title</ion-label>
+    <ion-item>
+      
+      <ion-input   formControlName="title" placeholder="Report title here..." [(ngModel)]= "dataHelpeilr.reportDeta.title" ></ion-input>
+      
+    </ion-item>
+    <p class="errorMsg" *ngIf="updaterepoer.get('title').hasError('required')  && 
+      (updaterepoer.get('title').dirty || updaterepoer.get('title').touched)">
+                *Title is Required
+              </p>
+    <ion-label >Description</ion-label>
+    <ion-item>
+      <ion-textarea   autoGrow="true" rows="1" formControlName="description"  placeholder="Report description here..." [(ngModel)]= "dataHelper.reportDetail.description"></ion-textarea>
+      
+    </ion-item>
+    
+    <p class="errorMsg" *ngIf="updaterepoer.get('description').hasError('required')  && 
+      (updaterepoer.get('description').dirty || updaterepoer.get('description').touched)">
+                *Description is Required
+              </p>
+ 
+  </div>
+  
+<div class="devcreatebtn">
+  <ion-button [disabled]="!updaterepoer.valid"  type="submit" color="dark" expand="block" >UPDATE</ion-button>
+</div>
+</form>
+</ion-content>
+
+
+
+

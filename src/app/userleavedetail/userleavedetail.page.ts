@@ -42,6 +42,29 @@ export class UserleavedetailPage implements OnInit {
     });
   }
 
+  showAlerteditleave() {
+    this.alertController.create({
+      header: 'Are you sure to Edit this Leave?',
+     
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            this.alertController.dismiss();
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.navCtrl.navigateForward('editleave');
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
+  }
+
   deleteLeaves(leave){
     // firebase.database().ref('reports').remove(report);
     // this.navCtrl.pop();

@@ -124,7 +124,15 @@ const routes: Routes = [
   {
     path: 'userallcontacts',
     loadChildren: () => import('./userallcontacts/userallcontacts.module').then( m => m.UserallcontactsPageModule)
+  },  {
+    path: 'editreport',
+    loadChildren: () => import('./editreport/editreport.module').then( m => m.EditreportPageModule)
   },
+  {
+    path: 'editleave',
+    loadChildren: () => import('./editleave/editleave.module').then( m => m.EditleavePageModule)
+  },
+
 
 ];
 

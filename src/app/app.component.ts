@@ -3,7 +3,7 @@ import { NavController, Platform } from '@ionic/angular';
 import { DatahelperService } from './provider/datahelper.service';
 import { PushnotificationService } from './provider/pushnotification.service';
 import firebase from 'firebase';
-import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
+// import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 declare var FirebasePlugin: any;
 
@@ -13,7 +13,8 @@ declare var FirebasePlugin: any;
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(public platform:Platform,private localNotifications: LocalNotifications,
+  constructor(public platform:Platform,
+    // private localNotifications: LocalNotifications,
     public dataHelper:DatahelperService  , public pushNotification:PushnotificationService
     ,public navCtrl:NavController) {
    this.platform.ready().then(() => {
@@ -38,51 +39,51 @@ export class AppComponent {
    
  }
  
- notificationsMethods() {
-  if (this.platform.is('cordova')) {
-    FirebasePlugin.grantPermission((hasPermission) => {
-      console.log('Permission was ' + (hasPermission ? 'granted' : 'denied'));
-    });
+//  notificationsMethods() {
+//   if (this.platform.is('cordova')) {
+//     FirebasePlugin.grantPermission((hasPermission) => {
+//       console.log('Permission was ' + (hasPermission ? 'granted' : 'denied'));
+//     });
 
-    FirebasePlugin.hasPermission((hasPermission) => {
-      console.log('Permission is ' + (hasPermission ? 'granted' : 'denied'));
-    });
+//     FirebasePlugin.hasPermission((hasPermission) => {
+//       console.log('Permission is ' + (hasPermission ? 'granted' : 'denied'));
+//     });
 
-    FirebasePlugin.getToken((token) => {
-      this.saveDeviceToken(token);
-    }, (error) => {
-      console.error(error);
-    });
+//     FirebasePlugin.getToken((token) => {
+//       this.saveDeviceToken(token);
+//     }, (error) => {
+//       console.error(error);
+//     });
 
-    FirebasePlugin.onTokenRefresh((token) => {
-      if (localStorage.getItem('deviceToken') !== token) {
-        this.saveDeviceToken(token);
-      }
-    }, (error) => {
-      console.error(error);
-    });
+//     FirebasePlugin.onTokenRefresh((token) => {
+//       if (localStorage.getItem('deviceToken') !== token) {
+//         this.saveDeviceToken(token);
+//       }
+//     }, (error) => {
+//       console.error(error);
+//     });
 
-    FirebasePlugin.onMessageReceived((message) => {
-      if (!message.tap) {
-        this.localNotifications.schedule({
-          id: 1,
-          title: message.title,
-          text: message.body,
-          foreground: true,
-          smallIcon: '/assets/imgs/logo2.png',
-        });
-      }
-      if (message.chat) {
-        if (message.tap === 'background') {
+//     FirebasePlugin.onMessageReceived((message) => {
+//       if (!message.tap) {
+//         this.localNotifications.schedule({
+//           id: 1,
+//           title: message.title,
+//           text: message.body,
+//           foreground: true,
+//           smallIcon: '/assets/imgs/logo2.png',
+//         });
+//       }
+//       if (message.chat) {
+//         if (message.tap === 'background') {
           
-        } else {
+//         } else {
 
-          // this.showToastMsg();
-        }
-      }
-    });
-  }
-}
+//           // this.showToastMsg();
+//         }
+//       }
+//     });
+//   }
+// }
 saveDeviceToken(token: string) {
   if (localStorage.getItem('deviceToken') !== token) {
     localStorage.setItem('deviceToken', token);

@@ -1,0 +1,43 @@
+
+
+
+
+<ion-content>
+  <div class="devBAckButton" style="padding-left:15px ;">
+    <img (click)="devBack()" src="../../assets/LogIn team/24/arrows/back.png" alt="">
+  </div>
+  <div class="devTitle">
+    <h1> Edit Leave </h1>
+  </div>
+  <div class="devBanner">
+    <img src="../../assets/LogIn team/main user screen2/leaveform.png" alt="">
+  </div>
+  <form [formGroup]="editleave" (ngSubmit)="addUserLeave(editleave.value)"  >
+  <div class="devform" >
+    <ion-label>Title</ion-label>
+    <ion-item>
+      
+      <ion-input  formControlName="title" placeholder="Leave title here..."  [(ngModel)]= "dataHelper.leavesDetail.title"></ion-input>
+    </ion-item>
+    <p class="errorMsg" *ngIf="editleave.get('title').hasError('required')  && 
+      (editleave.get('title').dirty || editleave.get('title').touched)">
+                *Title is Required
+              </p>
+    <ion-label >Description</ion-label>
+    <ion-item>
+
+      <ion-textarea  autoGrow="true" rows="1" formControlName="description"  placeholder="Leave description here..." [(ngModel)]= "dataHelper.leavesDetail.description"></ion-textarea>
+    </ion-item>
+    <p class="errorMsg" *ngIf="editleave.get('description').hasError('required')  && 
+      (editleave.get('description').dirty || editleave.get('description').touched)">
+                *Description is Required
+              </p>
+  </div>
+  
+<div class="devcreatebtn">
+  <ion-button [disabled]="!editleave.valid"  type="submit" color="dark" expand="block" >UPDATE</ion-button>
+</div>
+  </form>
+</ion-content>
+
+
