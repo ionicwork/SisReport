@@ -43,7 +43,7 @@ export class EditreportPage implements OnInit {
   }
   update(report){
     debugger
-    firebase.database().ref('reports/'+this.dataHelper.reportDetail).update(report).then(()=>{
+    firebase.database().ref('reports/'+this.dataHelper.reportDetail.key).update(report).then(()=>{
       report=this.dataHelper.reportDetail;
       debugger
       localStorage.setItem('report' ,JSON.stringify(report));

@@ -56,7 +56,7 @@ export class UserprofiledetailPage implements OnInit {
         {
           text: 'Yes',
           handler: () => {
-           this.navCtrl.navigateForward('editreport');
+           this.navCtrl.navigateForward(['/editreport']);
           }
         }
       ]
