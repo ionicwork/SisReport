@@ -55,7 +55,7 @@ export class UpdateEmployeePage implements OnInit {
         this.utils.presentToast('update successfully!');
         this.navCtrl.pop();
       }).catch((err)=>{
-        
+        this.utils.presentToasterror(err.message);
       })
   }
 }

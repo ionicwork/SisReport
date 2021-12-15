@@ -38,8 +38,6 @@ export class DatahelperService {
   ) {
   }
 
-
-
   dataFetched = false;
   adminReports: any = [{ month: 'January', array: [] }, { month: 'February', array: [] }, { month: 'March', array: [] }, { month: 'April', array: [] },
   { month: 'May', array: [] }, { month: 'June', array: [] }, { month: 'July', array: [] }, { month: 'August', array: [] }, { month: 'September', array: [] },

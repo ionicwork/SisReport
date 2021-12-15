@@ -42,37 +42,46 @@ export class UserleavedetailPage implements OnInit {
     });
   }
 
-  showAlerteditleave() {
-    this.alertController.create({
-      header: 'Are you sure to Edit this Leave?',
+  // showAlerteditleave() {
+  //   this.alertController.create({
+  //     header: 'Are you sure to Edit this Leave?',
      
-      buttons: [
-        {
-          text: 'No',
-          handler: () => {
-            this.alertController.dismiss();
-          }
-        },
-        {
-          text: 'Yes',
-          handler: () => {
-            this.navCtrl.navigateForward('editleave');
-          }
-        }
-      ]
-    }).then(res => {
-      res.present();
-    });
-  }
+  //     buttons: [
+  //       {
+  //         text: 'No',
+  //         handler: () => {
+  //           this.alertController.dismiss();
+  //         }
+  //       },
+  //       {
+  //         text: 'Yes',
+  //         handler: () => {
+  //           this.navCtrl.navigateForward('editleave');
+  //         }
+  //       }
+  //     ]
+  //   }).then(res => {
+  //     res.present();
+  //   });
+  // }
 
+  gotoeditleave(){
+    this.navCtrl.navigateForward('editleave');
+  }
   deleteLeaves(leave){
     // firebase.database().ref('reports').remove(report);
     // this.navCtrl.pop();
+    debugger
     firebase.database().ref('leaves').orderByChild('timeStamp').equalTo(leave.timeStamp).once('value' , (snapShot)=>{
       var data=snapShot.val();
+      debugger
       for(var key in data){
         data.key
         firebase.database().ref(`leaves/${key}`).remove();
+        var month = new Date().getMonth();
+        this.dataHelper.getLeaves[month].array.remove(key);
+        // debugger;
+        this.dataHelper.leavesData.remove(key);
       }
     } )
     this.navCtrl.pop();
@@ -82,3 +91,7 @@ export class UserleavedetailPage implements OnInit {
   
 
 }
+
+
+
+

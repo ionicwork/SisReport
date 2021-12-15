@@ -7,12 +7,17 @@
 
   <div class="devReportDetailMain">
   <div class="devreportContent">
-
-    <h1>{{ dataHelper.leavesDetail.title}}</h1>
+    <h3>Title</h3>
+    <p style="margin-top: 5px;">{{ dataHelper.leavesDetail.title}}</p>
   <div class="devDescription">
     <h3>Description</h3>
 
     <p> {{ dataHelper.leavesDetail.description}}</p>
+  </div>
+  <div class="devDescription">
+    <h3>Date to leave</h3>
+
+    <p> {{ dataHelper.leavesDetail.Date | date : 'dd-MM-yyyy'}}</p>
   </div>
   
     <div class="devreporttime">
@@ -31,7 +36,7 @@
     <ion-footer class="ion-no-border">
 
     <ion-button expand="block" (click)="showAlert(dataHelper.leavesDetail)" color="dark" style="margin: 15px;"> delete Leave </ion-button>
-    <ion-button expand="block" (click)=" showAlerteditleave()" color="dark" style="margin: 15px;"> EDIT REPORT </ion-button>
+    <ion-button expand="block" (click)="  gotoeditleave()" color="dark" style="margin: 15px;"> EDIT REPORT </ion-button>
     </ion-footer>
 
 

@@ -34,7 +34,7 @@ export class EditreportPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Your Profile have been saved successfully.',
+      message: 'Report updated successfully.',
       duration: 2000,
       color:'success',
       position: 'top',
@@ -42,15 +42,14 @@ export class EditreportPage implements OnInit {
     toast.present();
   }
   update(report){
-    debugger
+    // debugger
     firebase.database().ref('reports/'+this.dataHelper.reportDetail.key).update(report).then(()=>{
-      report=this.dataHelper.reportDetail;
+     this.dataHelper.reports= report;
       debugger
-      localStorage.setItem('report' ,JSON.stringify(report));
       this.presentToast();
       this.navCtrl.pop();
     }).catch((err)=>{
-      
+      this.utils.presentToasterror(err.message)
     })
     
 

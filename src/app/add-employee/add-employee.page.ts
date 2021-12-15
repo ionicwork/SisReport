@@ -65,7 +65,7 @@ export class AddEmployeePage implements OnInit {
       err;
       setTimeout(() => {
       this.utils.dismiss();
-      this.utils.presentToast(err.message)
+      this.utils.presentToasterror(err.message)
       }, 500);
     })
   }
@@ -80,6 +80,7 @@ export class AddEmployeePage implements OnInit {
       this.utils.dismiss();
       this.navCtrl.pop();
     }).catch((err)=>{
+      this.utils.presentToasterror(err.message)
       this.utils.dismiss();
     })
   }

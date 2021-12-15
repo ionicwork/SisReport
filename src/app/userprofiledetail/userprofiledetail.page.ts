@@ -42,43 +42,50 @@ export class UserprofiledetailPage implements OnInit {
     });
   }
 
-  showAlerteditreport() {
-    this.alertController.create({
-      header: 'Are you sure to Edit this report?',
+  // showAlerteditreport() {
+  //   this.alertController.create({
+  //     header: 'Are you sure to Edit this report?',
 
-      buttons: [
-        {
-          text: 'No',
-          handler: () => {
-            this.alertController.dismiss();
-          }
-        },
-        {
-          text: 'Yes',
-          handler: () => {
-           this.navCtrl.navigateForward(['/editreport']);
-          }
-        }
-      ]
-    }).then(res => {
-      res.present();
-    });
+  //     buttons: [
+  //       {
+  //         text: 'No',
+  //         handler: () => {
+  //           this.alertController.dismiss();
+  //         }
+  //       },
+  //       {
+  //         text: 'Yes',
+  //         handler: () => {
+  //          this.navCtrl.navigateForward(['/editreport']);
+  //         }
+  //       }
+  //     ]
+  //   }).then(res => {
+  //     res.present();
+  //   });
+  // }
+
+
+  gotoedireport(){
+           
+          this.navCtrl.navigateForward(['/editreport']); 
   }
 
-
   deletereport(report) {
+    debugger
     firebase.database().ref(`reports/${report.key}`).remove().then(()=>{
       for (let index = 0; index < this.dataHelper.reportsData.length; index++) {
         var ind = this.dataHelper.reportsData[index].array.findIndex(x => x.timeStamp == report.timeStamp)
         // debugger
         if (ind >= 0) {
           this.dataHelper.reportsData[index].array.splice(ind,1)
-          debugger
+          // debugger
           break;
         }
       }
     })
-    this.dataHelper.reports.push(report);
+    // this.dataHelper.reports.push(report);
+    // debugger
     this.navCtrl.pop();
     this.utils.presentToast('Report deleted successfully');
   }

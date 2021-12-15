@@ -32,6 +32,18 @@
       (addLeave.get('description').dirty || addLeave.get('description').touched)">
                 *Description is Required
               </p>
+
+              <ion-item lines="none" class="ion-no-padding">
+                <ion-label position="floating" class="required" mode="md"> Date to Leave</ion-label>
+                <!-- <ion-input type="text" 
+                  placeholder="Joining Date" formControlName="Date"></ion-input> -->
+                  <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2052-12-09" formControlName="Date"></ion-datetime>
+
+              </ion-item>
+              <p class="errorMsg" *ngIf="addLeave.get('Date').hasError('required')  && 
+              (addLeave.get('Date').dirty || addLeave.get('Date').touched)">
+                        *Date is Required
+                      </p>
   </div>
   
 <div class="devcreatebtn">

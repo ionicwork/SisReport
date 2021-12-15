@@ -46,6 +46,7 @@
           <ion-icon *ngIf="leave.feedback" slot="end" style="    font-size: 27px;
             color: #1b861b;     position: absolute; top: 14px;  right: 37px;" name="checkmark-circle"></ion-icon>
          <p style="margin: 0;  ">{{(leave.description?.length>80)? (leave.description | slice:0:80)+'...':(leave.description)}}</p>
+         
           <div class="devreporttime">
             <ion-icon name="time-outline"></ion-icon>
             <p>{{leave.timeStamp | date : 'dd-MM-yyyy hh:mm a'}}</p>

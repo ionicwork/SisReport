@@ -22,6 +22,9 @@ export class AddleaveformPage implements OnInit {
       description: ['', Validators.compose([
         Validators.required,
       ])],
+      Date: ['', Validators.compose([
+        Validators.required,
+      ])],
     
     })
   }

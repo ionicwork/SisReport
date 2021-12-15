@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder , FormGroup  , Validators} from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { DatahelperService } from '../provider/datahelper.service';
 import firebase from 'firebase';
 
@@ -11,7 +11,8 @@ import firebase from 'firebase';
 })
 export class LeavedetailPage implements OnInit {
   public feedback:FormGroup;
-  constructor(public navCtrl:NavController , public dataHelper:DatahelperService , public _fb:FormBuilder,) { }
+  public edit= false;
+  constructor(public navCtrl:NavController , public alertController:AlertController, public dataHelper:DatahelperService , public _fb:FormBuilder,) { }
 
   async ngOnInit() {
     firebase.database().ref('feedback').on('value', (snapshot) => {
@@ -26,6 +27,30 @@ export class LeavedetailPage implements OnInit {
       
     })
     
+  }
+
+  showAlert(report) {
+    this.alertController.create({
+      header: 'Leave Accepted or Rejected?',
+      mode:'ios',
+      buttons: [
+        {
+          text: 'Accect ',
+          cssClass: 'my-custom-class',
+          handler: () => {
+            this.alertController.dismiss();
+          }
+        },
+        {
+          text: 'Reject',
+          handler: () => {
+            
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
   }
   gotoChat(employee) {
     this.dataHelper.chatEmployee=employee;
@@ -42,4 +67,8 @@ export class LeavedetailPage implements OnInit {
 
   }
 
+
+  editfeedack(){
+    this.edit = ! this.edit;
+  }
 }

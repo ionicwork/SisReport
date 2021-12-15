@@ -42,7 +42,7 @@ export class AdminLoginPage implements OnInit {
       }).catch(err=>{
         setTimeout(() => {
         this.utils.dismiss();
-        this.utils.presentToast(err.message)
+        this.utils.presentToasterror(err.message)
         }, 1000);
       })
      

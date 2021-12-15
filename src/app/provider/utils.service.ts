@@ -45,5 +45,14 @@ export class UtilsService {
     toast.present();
   }
 
+  async presentToasterror(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      color : 'danger',
+    });
+    toast.present();
+  }
+
 
 }

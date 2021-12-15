@@ -16,9 +16,14 @@
         </ion-row>
       <h1>{{ dataHelper.leavesDetail.title }}</h1>
       <div class="devDescription">
-        <h3></h3>
+        <h3>Description</h3>
 
         <p>{{ dataHelper.leavesDetail.description }}</p>
+      </div>
+      <div class="devDescription">
+        <h3>Date to Leave</h3>
+
+        <p>{{ dataHelper.leavesDetail.Date | date : 'dd-MM-yyyy'}}</p>
       </div>
     
       <div class="devreporttime">
@@ -34,19 +39,37 @@
     <p *ngIf="this.dataHelper.leavesDetail.feedback" >
      {{this.dataHelper.leavesDetail.feedback.feedback}}
      <span>{{ dataHelper.leavesDetail.feedback.timeStamp | date : 'dd-MM-yyyy hh:mm a'}}</span>
+     <ion-icon (click)="editfeedack()" name="create"></ion-icon>
       </p>
      
+  </div>
+  <div  class="ion-no-border buttons">
+    <!-- <form [formGroup]="feedback" (ngSubmit)="Feedback(feedback.value)" >
+    <ion-row> 
+      <ion-input type="text" placeholder="Feedback" formControlName="feedback" ></ion-input>
+      <ion-button type="submit" [disabled]="!feedback.valid"> <ion-icon name="send"  ></ion-icon></ion-button>
+      </ion-row>
+  
+    </form> -->
+    <ion-button   color="favorite"  >ACCEPT</ion-button>
+    <ion-button    color="danger"  >REJECT</ion-button>
+  
   </div>
 </ion-content>
 
 
-<ion-footer *ngIf="!this.dataHelper.leavesDetail.feedback" class="ion-no-border">
-  <form [formGroup]="feedback" (ngSubmit)="Feedback(feedback.value)" >
+<!-- <ion-footer  class="ion-no-border"> -->
+  <!-- <form [formGroup]="feedback" (ngSubmit)="Feedback(feedback.value)" >
   <ion-row> 
     <ion-input type="text" placeholder="Feedback" formControlName="feedback" ></ion-input>
     <ion-button type="submit" [disabled]="!feedback.valid"> <ion-icon name="send"  ></ion-icon></ion-button>
     </ion-row>
 
-  </form>
-</ion-footer>
+  </form> -->
+  <!-- <ion-button  style="    font-weight: 600; font-size: 16px;"   color="favorite"  >ACCEPT</ion-button>
+  <ion-button  style="    font-weight: 600; font-size: 16px;"  color="danger" >REJECT</ion-button>
+
+</ion-footer> -->
+
+
 
